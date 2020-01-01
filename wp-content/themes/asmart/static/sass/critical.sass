@@ -1,0 +1,276 @@
+$main_font: 'Ubuntu'
+$main_color : #9CCC51
+$main_color_alt : #85B33E
+$text_color : #67686A
+$alt_color : #14918D
+
+
+//
+// Boostrap css
+//
+@media (min-width: 1200px)
+  .container
+    max-width: 1140px
+.row
+  display: -ms-flexbox
+  display: flex
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+  margin-right: -15px
+  margin-left: -15px
+
+@media (min-width: 576px)
+  .col-sm-7
+    -ms-flex: 0 0 58.333333%
+    flex: 0 0 58.333333%
+    max-width: 58.333333%
+  .col-sm-5
+    -ms-flex: 0 0 41.666667%
+    flex: 0 0 41.666667%
+    max-width: 41.666667%
+
+  .col-sm-8
+    -ms-flex: 0 0 66.666667%
+    flex: 0 0 66.666667%
+    max-width: 66.666667%
+
+  .col-sm-4
+    -ms-flex: 0 0 33.333333%
+    flex: 0 0 33.333333%
+    max-width: 33.333333%
+
+//
+// Header
+//
+header
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+  font-family: $main_font
+  .top-header
+    overflow: hidden
+    .first-row.flex-container-row
+      justify-content: flex-start!important
+    .second-row
+      position: relative
+      &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        width: 250%
+        height: 100%
+        background-color: #F8F8F8
+        z-index: -1
+  #logo-img
+    img
+      display: inline-block
+      vertical-align: middle
+
+
+  #logo-text
+    .first
+      color: $text_color
+      font-weight: 300
+      padding-right: 15px
+      position: relative
+      span
+        font-weight: 700
+        display: block
+        width: 100%
+        text-transform: uppercase
+      &:after
+        content: ""
+        display: block
+        width: 1px
+        height: 34px
+        background: $text_color
+        position: absolute
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+
+    .second
+      text-transform: uppercase
+      padding-left: 15px
+      font-weight: 700
+      color: $text_color
+      span
+        font-weight: 300
+
+
+  #top-info-list
+    .phones
+      .list
+        padding: 0 0 0 15px
+        margin: 0
+        li
+          list-style: none
+          a
+            text-decoration: none
+            color: $text_color
+            transition: all .3s
+            &:hover
+              color: $main_color
+              text-decoration: none
+
+            span
+              font-weight: 700
+
+    .email
+      padding-left: 40px
+      a
+        padding-left: 17px
+        color: $text_color
+        transition: all .3s
+        &:hover
+          text-decoration: none
+          color: $main_color
+        span
+          font-weight: 700
+
+.bottom-header
+  background: rgba(16,123,119, .65)
+  position: absolute
+  top: 98px
+  left: 0
+  width: 100%
+  z-index: 2
+  .link-call
+    text-decoration: none
+    padding: 7px 0
+    margin: 0 0 0 auto
+    width: 309px
+    span
+      padding: 23px 27px
+      background-color:  #85B23E
+      border-radius: 50%
+      position: relative
+      z-index: 2
+      transition: all .3s
+      left: 18px
+
+    p
+      margin-bottom: 0
+      color: #466712
+      z-index: 1
+      padding: 18px 37px
+      background-color: $main_color
+      border-top-right-radius: 40px
+      border-bottom-right-radius: 40px
+      position: relative
+
+      font-weight: 500
+      text-transform: uppercase
+      transition: all .3s
+    &:hover
+      p
+        background-color: $alt_color
+        color: #fff
+
+
+
+
+  .navigation
+    .nav-bar-custom
+      margin: 0
+      padding: 0
+      li
+        list-style: none
+        display: inline-block
+        padding-left: 55px
+        a
+          color: #fff
+          line-height: 87px
+          transition: all .3s
+          &:hover
+            color: $main_color
+            text-decoration: none
+
+        &:first-child
+          padding-left: 0
+
+
+
+
+
+
+.hide-title
+  margin: 0
+  height: 0
+  overflow: hidden
+
+
+#slider
+  height: 550px
+  background-color: $alt_color
+  background-image: url("/wp-content/themes/asmart/assets/images/home-slider-alt.jpg")
+  background-size: cover!important
+
+  .content
+    margin-top: 87px
+    p
+      margin-top: 0
+      display: inline-block
+      margin-bottom: 5px
+      color: #fff
+      text-transform: uppercase
+
+    .title-sub
+      color: #fff
+      font-size: 25px
+      text-transform: uppercase
+      line-height: 40px
+      margin-bottom: 0
+      span
+        font-weight: 700
+        width: 100%
+        display: block
+  .home-slider-img-overlay
+    position: relative
+    z-index: 0
+    max-height: 550px
+
+  .list-service
+    margin: 0 -30px
+    padding: 15px 0 0 10px
+    li
+      text-align: left
+      list-style: none
+      display: inline-block
+      img
+        width: auto
+
+      .title
+        margin-top: 15px
+        margin-bottom: 0
+        color: #fff
+        font-size: 16px
+
+
+
+
+
+
+
+
+
+
+
+.flex-container-row
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -webkit-flex-direction: row
+  -ms-flex-direction: row
+  flex-direction: row
+  -webkit-flex-wrap: nowrap
+  -ms-flex-wrap: nowrap
+  flex-wrap: nowrap
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-content: stretch
+  -ms-flex-line-pack: stretch
+  align-content: stretch
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
