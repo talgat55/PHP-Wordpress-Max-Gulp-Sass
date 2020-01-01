@@ -58,62 +58,32 @@ add_action('get_footer', 'prefix_add_footer_styles');
 /*
 *  Register Post Type  Certs
 */
-
-add_action('init', 'post_type_certs');
-
-function post_type_certs()
-{
-    $labels = array(
-        'name' => 'Сертификаты',
-        'singular_name' => 'Сертификаты',
-        'all_items' => 'Сертификаты',
-        'menu_name' => 'Сертификаты' // ссылка в меню в админке
-    );
-    $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'menu_position' => 5,
-        'has_archive' => true,
-        'query_var' => "certs",
-        'supports' => array(
-            'title',
-            'editor',
-            'thumbnail'
-        )
-    );
-    register_post_type('certs', $args);
-}
-
-
-
-/*
-*  Register Post Type  Products
-*/
-
-add_action('init', 'post_type_products');
-
-function post_type_products()
-{
-    $labels = array(
-        'name' => 'Товары',
-        'singular_name' => 'Товары',
-        'all_items' => 'Товары',
-        'menu_name' => 'Товары' // ссылка в меню в админке
-    );
-    $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'menu_position' => 5,
-        'has_archive' => true,
-        'query_var' => "products",
-        'supports' => array(
-            'title',
-            'editor',
-            'thumbnail'
-        )
-    );
-    register_post_type('products', $args);
-}
+//
+//add_action('init', 'post_type_certs');
+//
+//function post_type_certs()
+//{
+//    $labels = array(
+//        'name' => 'Сертификаты',
+//        'singular_name' => 'Сертификаты',
+//        'all_items' => 'Сертификаты',
+//        'menu_name' => 'Сертификаты' // ссылка в меню в админке
+//    );
+//    $args = array(
+//        'labels' => $labels,
+//        'public' => true,
+//        'menu_position' => 5,
+//        'has_archive' => true,
+//        'query_var' => "certs",
+//        'supports' => array(
+//            'title',
+//            'editor',
+//            'thumbnail'
+//        )
+//    );
+//    register_post_type('certs', $args);
+//}
+//
 
 
 
@@ -133,34 +103,3 @@ if (function_exists('acf_add_options_page')) {
 
 }
 
-/**
- * Return right url  for navigation
- * @param $name
- * @return string
- */
-
-function urlsRightReturn($name)
-{
-
-    if (is_home()) {
-        $home = true;
-    } else {
-        $home = false;
-    }
-
-    $url ='';
-
-    if ($name == 'price') {
-        $url = $home ? '#price-section' : home_url() . '#price-section';
-    } else if ($name == 'step') {
-        $url = $home ? '#step-section' : home_url() . '#step-section';
-    } else if ($name == 'delivery') {
-        $url = $home ? '#delivery-section' : home_url() . '#delivery-section';
-    }else if ($name == 'cert') {
-        $url = $home ? '#cert-section' : home_url() . '#cert-section';
-    }else if ($name == 'map') {
-        $url =  $home ? '#map-section' : home_url() . '#map-section';
-    }
-
-    return $url;
-}
