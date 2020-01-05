@@ -1,4 +1,13 @@
 <?php
+/*
+* Register nav menu
+*/
+if (function_exists('register_nav_menus')) {
+    $menu_arr = array(
+        'top_menu' => 'Топ Меню',
+    );
+    register_nav_menus($menu_arr);
+}
 
 
 /*
@@ -17,17 +26,17 @@ function th_scripts()
 
     wp_enqueue_style('bootstrap.min', get_theme_file_uri('/assets/css/bootstrap.min.css'), array(), '');
 
-    wp_enqueue_script('jquery', get_theme_file_uri('/assets/js/jquery-3.2.1.min.js'), array(), '', true);
-    wp_enqueue_script('jquery-migrate.min', get_theme_file_uri('/assets/js/jquery-migrate.min.js'), array(), '', true);
+    wp_enqueue_script('jquery', get_theme_file_uri('/assets/js/jquery-3.2.1.min.js'), array(), '');
+//    wp_enqueue_script('jquery-migrate.min', get_theme_file_uri('/assets/js/jquery-migrate.min.js'), array(), '', true);
     wp_enqueue_script('slick.min', get_theme_file_uri('/assets/js/slick.min.js'), array(), '', true);
-    wp_enqueue_script('lazy', get_theme_file_uri('/assets/js/jquery.lazy.min.js'), array(), '', true);
-
-    wp_enqueue_script('jquery.inputmask', get_theme_file_uri('/assets/js/jquery.inputmask.js'), array(), '', true);
-
-    wp_enqueue_script('lightbox.min.js', get_theme_file_uri('/assets/js/lightbox.min.js'), array(), '', true);
-
-
-    wp_enqueue_script('yandex-maps', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '1', true);
+//    wp_enqueue_script('lazy', get_theme_file_uri('/assets/js/jquery.lazy.min.js'), array(), '', true);
+//
+//    wp_enqueue_script('jquery.inputmask', get_theme_file_uri('/assets/js/jquery.inputmask.js'), array(), '', true);
+//
+//    wp_enqueue_script('lightbox.min.js', get_theme_file_uri('/assets/js/lightbox.min.js'), array(), '', true);
+//
+//
+//    wp_enqueue_script('yandex-maps', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '1', true);
 
     wp_enqueue_script('default', get_theme_file_uri('/assets/js/default.js'), array(), '1', true);
 
@@ -43,10 +52,11 @@ function prefix_add_footer_styles()
 
 
     wp_enqueue_style('normalize', get_theme_file_uri('/assets/css/normalize.css'), array(), '');
-    wp_enqueue_style('lightbox.min.css', get_theme_file_uri('/assets/css/lightbox.min.css'), array(), '');
+//    wp_enqueue_style('lightbox.min.css', get_theme_file_uri('/assets/css/lightbox.min.css'), array(), '');
     wp_enqueue_style('slick', get_theme_file_uri('/assets/css/slick.css'), array(), '');
     wp_enqueue_style('slick-theme', get_theme_file_uri('/assets/css/slick-theme.css'), array(), '');
     wp_enqueue_style('main-style', get_theme_file_uri('/assets/css/style.css'), array(), '1');
+//    wp_enqueue_style('montserrat', get_theme_file_uri('/assets/fonts/montserrat.css'), array(), '1');
 //    wp_enqueue_style('main-style2', get_theme_file_uri('/assets/css/critical.css'), array(), '1');
 
 }
@@ -84,6 +94,34 @@ add_action('get_footer', 'prefix_add_footer_styles');
 //    register_post_type('certs', $args);
 //}
 //
+
+/*
+*  Register Post Type  Home slider
+*/
+add_action('init', 'post_type_home_slider');
+
+function post_type_home_slider()
+{
+    $labels = array(
+        'name' => 'Слайдер',
+        'singular_name' => 'Слайдер',
+        'all_items' => 'Слайдер',
+        'menu_name' => 'Слайдер' // ссылка в меню в админке
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_position' => 5,
+        'has_archive' => true,
+        'query_var' => "home_slider",
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail'
+        )
+    );
+    register_post_type('home_slider', $args);
+}
 
 
 

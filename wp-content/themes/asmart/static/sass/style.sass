@@ -1,13 +1,8 @@
+$main_font: 'Montserrat', sans-serif
 
-
-$main_font: 'Ubuntu'
-$main_color : #9CCC51
-$main_color_alt : #85B33E
-$text_color : #67686A
-$alt_color : #14918D
-
-*
-  font-family: 'Ubuntu'
+@media (min-width: 1200px)
+  .container
+    max-width: 1170px
 
 =placeholder
   &::-webkit-input-placeholder
@@ -18,3 +13,106 @@ $alt_color : #14918D
     @content
   &:-ms-input-placeholder
     @content
+
+
+//
+// Header
+//
+.header
+
+.menu-menu-1-container
+  #menu-main
+    margin: 0
+    padding: 0
+    display: flex
+    align-items: center
+
+    .menu-item
+      text-decoration: none
+      list-style: none
+      position: relative
+      margin: 0 11px
+
+      &.current_page_item
+        &:before
+          content: ""
+          display: block
+          background: url(../images/active-border.svg)
+          width: 100%
+          height: 8px
+          margin: 0 auto
+          background-size: cover
+          position: absolute
+          bottom: 0
+          border-top-left-radius: 2px
+          border-top-right-radius: 2px
+          overflow: hidden
+
+      a
+        font-weight: 500
+        font-size: 0.9375rem
+        color: var(--black-color)
+        transition: all .3s
+        line-height: 80px
+
+        &:hover
+          text-decoration: none
+          color: var(--theme-color)
+
+      &:last-child
+        margin-right: 0
+
+
+.link
+  font-weight: 500
+  font-size: 1rem
+  line-height: 28px
+  color: var(--white-color)
+  text-transform: uppercase
+  background-color: var(--theme-color)
+  border-radius: 30px
+  display: inline-block
+  transition: all .3s
+
+  &:hover
+    text-decoration: none
+    color: var(--white-color)
+    background-color: var(--black-color)
+
+  &.link-large
+    padding: 11px 41px
+
+//
+// Home slider
+//
+.home-slider
+  height: 620px
+  position: relative
+  background-size: cover!important
+  background-position: center center!important
+  &_second,
+  &_first
+    padding: 0
+    color: var(--black-color)
+
+    &__title
+      font-weight: 600
+      font-size: 2.5rem
+      line-height: 50px
+      margin-bottom: 18px
+
+    &__text
+      line-height: 28px
+      font-size: 1.125rem
+      margin-bottom: 36px
+
+
+
+  .home-slider_arrow-down
+    display: inline-block
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    bottom: 40px
+    z-index: 2
+

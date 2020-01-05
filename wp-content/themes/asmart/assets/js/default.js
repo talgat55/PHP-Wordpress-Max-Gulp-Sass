@@ -5,14 +5,12 @@
 jQuery(document).ready(function () {
     "use strict";
 
-
+    sliderHomePage();
     certsCarousel();
-    lasyLoad();
     modal();
     mobileMenu();
     phoneMask();
     backToTop();
-    scrollToDiv();
     // end redy function
 });
 
@@ -21,33 +19,7 @@ jQuery(window).load(function () {
     map();
 });
 
-// ---------------------------------------------------------
-// Scroll to section
-// ---------------------------------------------------------
-function scrollToDiv() {
-    "use strict";
 
-    if (jQuery('body').hasClass('home')) {
-        jQuery(document).on('click', ".nav-bar-custom a, .nav-bar-footer a", function (e) {
-
-            e.preventDefault();
-
-            var position = jQuery(jQuery(this).attr("href")).offset().top;
-
-            jQuery("body, html").animate({
-                scrollTop: position
-            } /* speed */);
-
-            var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + jQuery(this).attr('href');
-            window.history.pushState({path: newurl}, '', newurl);
-
-        });
-
-
-
-    }
-
-}
 
 // ---------------------------------------------------------
 // Back To Top
@@ -100,23 +72,6 @@ function modal() {
 }
 
 
-//----------------------------------
-//   Lasyload
-//---------------------------------------
-
-function lasyLoad() {
-    "use strict";
-
-    var lasyClass = jQuery('.lazy');
-
-    if (lasyClass.length) {
-        lasyClass.lazy({
-            effect: "fadeIn",
-            effectTime: 700,
-        });
-    }
-
-}
 
 //----------------------------------
 //   Carousel Certs
@@ -190,18 +145,6 @@ function certsCarousel() {
 }
 
 
-//----------------------------------
-// Map
-//------------------------------------
-// set width  for map in home page
-function dinamicWidthMap() {
-    "use strict";
-    var $mapHome = jQuery('#map');
-
-    $mapHome.css('width', (jQuery(window).width() - jQuery('.container').width()) / 2 + jQuery('#map-section .map-container').width());
-
-
-}
 
 function map() {
     "use strict";
@@ -269,36 +212,27 @@ function phoneMask() {
     }
 }
 
-//
-// Show modal after success send mail
-//
-document.addEventListener('wpcf7mailsent', function (event) {
-    var classShow = 'show';
-
-    jQuery('.custom-modal').removeClass(classShow);
-
-    jQuery('.success-modal, .overlay-layer').addClass(classShow);
-
-    setTimeout(function () {
-
-        jQuery('.success-modal, .overlay-layer').removeClass(classShow);
 
 
-    }, 3000);
+//----------------------------------
+//   Home Slider
+//---------------------------------------
+
+function sliderHomePage() {
+    "use strict";
+    var sliderWrap = jQuery('.home-slider_slider');
+
+    if (sliderWrap.length) {
+        sliderWrap.slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            dots: true,
+            //   autoplay: true,
+        });
 
 
-}, false);
-
-//
-//  Metrics goals
-//
-document.addEventListener('wpcf7mailsent', function (event) {
-    if (event.detail.contactFormId == "12") {
-        yaCounter54090724.reachGoal('voznikvopros');
-    } else if (event.detail.contactFormId == "13") {
-        yaCounter54090724.reachGoal('zakaztopliva1');
-    } else {
-        yaCounter54090724.reachGoal('obraztzy');
     }
 
-}, false);
+}
