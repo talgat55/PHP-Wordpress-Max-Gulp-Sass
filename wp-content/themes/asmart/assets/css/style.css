@@ -63,12 +63,21 @@
     background-color: var(--black-color); }
   .link.link-large {
     padding: 11px 41px; }
+  .link.link-main {
+    padding: 11px 28px; }
+
+.sub-title {
+  font-weight: 600;
+  font-size: 1.875rem;
+  line-height: 46px;
+  color: var(--black-color); }
 
 .home-slider {
   height: 620px;
   position: relative;
   background-size: cover !important;
-  background-position: center center !important; }
+  background-position: center center !important;
+  overflow: hidden; }
   .home-slider_second, .home-slider_first {
     padding: 0;
     color: var(--black-color); }
@@ -90,3 +99,45 @@
             transform: translateX(-50%);
     bottom: 40px;
     z-index: 2; }
+
+.home-about {
+  margin-top: 79px; }
+  .home-about_first {
+    padding-left: 0;
+    margin-bottom: 90px; }
+    .home-about_first .sub-title {
+      margin-bottom: 19px; }
+    .home-about_first__text {
+      margin-bottom: 33px; }
+  .home-about_second {
+    padding-right: 0; }
+    .home-about_second_list-facts {
+      margin: -19px 100px 100px 0;
+      padding: 0; }
+      .home-about_second_list-facts__item {
+        position: relative;
+        list-style: none;
+        margin-bottom: 49px; }
+        .home-about_second_list-facts__item:before {
+          content: "";
+          display: block;
+          background: url(../images/line_about.svg);
+          position: absolute;
+          top: 50%;
+          margin-top: -1px;
+          left: 104%;
+          height: 1px;
+          width: 140%;
+          background-size: cover !important; }
+        .home-about_second_list-facts__item:last-child {
+          margin-bottom: 0; }
+        .home-about_second_list-facts__item__text {
+          font-size: 1.5rem;
+          line-height: 24px;
+          text-align: right;
+          margin-right: 20px; }
+        .home-about_second_list-facts__item__number {
+          color: var(--theme-color);
+          font-weight: bold;
+          font-size: 4rem;
+          line-height: 78px; }

@@ -82,14 +82,25 @@ $main_font: 'Montserrat', sans-serif
   &.link-large
     padding: 11px 41px
 
+  &.link-main
+    padding: 11px 28px
+
+.sub-title
+  font-weight: 600
+  font-size: 1.875rem
+  line-height: 46px
+  color: var(--black-color)
+
 //
 // Home slider
 //
 .home-slider
   height: 620px
   position: relative
-  background-size: cover!important
-  background-position: center center!important
+  background-size: cover !important
+  background-position: center center !important
+  overflow: hidden
+
   &_second,
   &_first
     padding: 0
@@ -107,7 +118,6 @@ $main_font: 'Montserrat', sans-serif
       margin-bottom: 36px
 
 
-
   .home-slider_arrow-down
     display: inline-block
     position: absolute
@@ -115,4 +125,58 @@ $main_font: 'Montserrat', sans-serif
     transform: translateX(-50%)
     bottom: 40px
     z-index: 2
+
+
+//
+// About
+//
+.home-about
+  margin-top: 79px
+
+  &_first
+    padding-left: 0
+    margin-bottom: 90px
+
+    .sub-title
+      margin-bottom: 19px
+
+    &__text
+      margin-bottom: 33px
+
+  &_second
+    padding-right: 0
+    &_list-facts
+      margin: -19px 100px 100px 0
+      padding: 0
+
+      &__item
+        position: relative
+        list-style: none
+        margin-bottom: 49px
+        &:before
+          content: ""
+          display: block
+          background: url(../images/line_about.svg)
+          position: absolute
+          top: 50%
+          margin-top: -1px
+          left: 104%
+          height: 1px
+          width: 140%
+          background-size: cover!important
+
+        &:last-child
+          margin-bottom: 0
+
+        &__text
+          font-size: 1.5rem
+          line-height: 24px
+          text-align: right
+          margin-right: 20px
+
+        &__number
+          color: var(--theme-color)
+          font-weight: bold
+          font-size: 4rem
+          line-height: 78px
 
