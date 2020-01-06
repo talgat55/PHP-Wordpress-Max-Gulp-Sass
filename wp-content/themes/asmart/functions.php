@@ -94,6 +94,33 @@ add_action('get_footer', 'prefix_add_footer_styles');
 //    register_post_type('certs', $args);
 //}
 //
+/*
+*  Register Post Type  Events
+*/
+add_action('init', 'post_type_events');
+
+function post_type_events()
+{
+    $labels = array(
+        'name' => 'События',
+        'singular_name' => 'События',
+        'all_items' => 'События',
+        'menu_name' => 'События' // ссылка в меню в админке
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_position' => 5,
+        'has_archive' => true,
+        'query_var' => "events",
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail'
+        )
+    );
+    register_post_type('events', $args);
+}
 
 /*
 *  Register Post Type  Home slider

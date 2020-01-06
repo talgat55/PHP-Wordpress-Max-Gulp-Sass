@@ -23,6 +23,7 @@ Domain Path: /languages
     --black-color: #000000;
     --theme-color: #D82A00;
     --white-color: #fff;
+    --theme-color-alt: #13273F
 }
 
 html {
