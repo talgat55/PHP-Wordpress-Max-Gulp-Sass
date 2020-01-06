@@ -6,6 +6,8 @@ jQuery(document).ready(function () {
     "use strict";
 
     sliderHomePage();
+    homePagePortfolioCarousel();
+
     certsCarousel();
     modal();
     mobileMenu();
@@ -229,10 +231,26 @@ function sliderHomePage() {
             slidesToScroll: 1,
             arrows: false,
             dots: true,
+            autoplay: true,
+        });
+    }
+}
+//----------------------------------
+//   Home Portfolio carousel
+//---------------------------------------
+
+function homePagePortfolioCarousel() {
+    "use strict";
+    var carouselWrap = jQuery('.home-portfolio_carousel');
+
+    if (carouselWrap.length) {
+        carouselWrap.slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            arrows: true,
+            dots: true,
             //   autoplay: true,
         });
-
-
     }
-
 }

@@ -281,7 +281,133 @@ $main_font: 'Montserrat', sans-serif
           text-decoration: none
 
 
+//
+// Portfolio
+//
 
+.home-portfolio
+  padding: 77px 0 90px
+  overflow: hidden
+
+  .sub-title
+    margin-bottom: 45px
+
+  .slick-dots
+    bottom: -60px
+
+    li
+      margin: 0 2.5px
+
+      button
+        background-color: #D3D3D3
+        border-radius: 50%
+        width: 15px
+        height: 15px
+
+        &:before
+          display: none
+
+      &.slick-active
+        button
+          background-color: var(--dots-color)
+
+  .slick-arrow
+    width: 50px
+    height: 50px
+    background-position: center center !important
+    background: url(../images/arrow.svg)
+    border: 2px solid #F1F2F3
+    border-radius: 50%
+    background-repeat: no-repeat !important
+    transition: all .3s
+    margin-top: -90px
+
+    &:before
+      display: none
+
+    &:hover
+      background-color: #F4F4F4
+      border-color: #F4F4F4
+
+
+  .slick-prev
+    transform: rotateZ(180deg)
+    left: -53px
+
+  .slick-next
+    right: -53px
+
+  .link-main
+    margin-top: 40px
+
+.home-portfolio_carousel
+  margin-left: -15px
+  margin-right: -15px
+  margin-bottom: 55px!important
+
+.home-portfolio_carousel_item
+  margin: 0 15px
+
+  &_img-block
+    margin-bottom: 10px
+    position: relative
+
+    &_hover-block
+      position: absolute
+      opacity: 0
+      transition: all .3s
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: url(../images/portoflio-hover.png)
+      background-size: cover !important
+      background-position: center center !important
+
+      &_link
+        display: inline-block
+        color: var(--white-color)
+        padding: 6px 19px
+        font-weight: 500
+        font-size: 0.875rem
+        line-height: 28px
+        letter-spacing: 0.03em
+        text-transform: uppercase
+        border: 2px solid #FFFFFF
+        border-radius: 30px
+        position: absolute
+        bottom: 40px
+        left: 50%
+        transform: translateX(-50%)
+        transition: all .3s
+
+        &:hover
+          color: var(--white-color)
+          text-decoration: none
+          background-color: var(--theme-color)
+          border-color: var(--theme-color)
+
+
+    &:hover .home-portfolio_carousel_item_img-block_hover-block
+      opacity: 1
+
+
+    img
+      max-width: 100%
+
+  &_title
+    font-weight: 600
+    font-size: 1.125rem
+    line-height: 28px
+    color: var(--black-color)
+    transition: all .3s
+    min-height: 56px
+    display: inline-block
+    margin-bottom: 6px
+
+    &:hover
+      color: var(--theme-color)
+      text-decoration: none
 
 
 

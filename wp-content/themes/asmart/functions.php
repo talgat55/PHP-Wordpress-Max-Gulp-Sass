@@ -15,6 +15,7 @@ if (function_exists('register_nav_menus')) {
 **/
 add_theme_support('post-thumbnails');
 add_image_size('cert-img', 260, 366, false);
+add_image_size('portfolio-home', 380, 306, true);
 
 
 /**
@@ -150,6 +151,34 @@ function post_type_home_slider()
     register_post_type('home_slider', $args);
 }
 
+
+/*
+*  Register Post Type  Portfolio
+*/
+add_action('init', 'post_type_portfolio');
+
+function post_type_portfolio()
+{
+    $labels = array(
+        'name' => 'Портфолио',
+        'singular_name' => 'Портфолио',
+        'all_items' => 'Портфолио',
+        'menu_name' => 'Портфолио' // ссылка в меню в админке
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_position' => 5,
+        'has_archive' => true,
+        'query_var' => "portfolio",
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail'
+        )
+    );
+    register_post_type('portfolio', $args);
+}
 
 
 /*

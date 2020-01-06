@@ -6,4 +6,5 @@ get_header(); ?>
 <?php get_template_part('inc/homeSlider'); ?>
 <?php get_template_part('inc/homeAbout'); ?>
 <?php get_template_part('inc/homeEvents'); ?>
+<?php get_template_part('inc/homePortfolio'); ?>
 <?php get_footer();
