@@ -90,6 +90,12 @@ $arg = [
                 wp_reset_query();
                 ?>
             </div>
+            <div class="d-flex w-100 justify-content-center">
+                <a href="#" class="link link-main">
+                    все события
+                </a>
+            </div>
+
         </div>
     </div>
 </section>

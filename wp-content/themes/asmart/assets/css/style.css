@@ -148,7 +148,7 @@
   .events-section .sub-title {
     margin-bottom: 35px; }
   .events-section .events-section_list {
-    margin: 0;
+    margin: 0 0 40px;
     padding: 0;
     width: 100%; }
     .events-section .events-section_list_item {
