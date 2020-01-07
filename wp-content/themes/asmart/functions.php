@@ -32,7 +32,7 @@ function th_scripts()
     wp_enqueue_script('slick.min', get_theme_file_uri('/assets/js/slick.min.js'), array(), '', true);
 //    wp_enqueue_script('lazy', get_theme_file_uri('/assets/js/jquery.lazy.min.js'), array(), '', true);
 //
-//    wp_enqueue_script('jquery.inputmask', get_theme_file_uri('/assets/js/jquery.inputmask.js'), array(), '', true);
+    wp_enqueue_script('jquery.inputmask', get_theme_file_uri('/assets/js/jquery.inputmask.js'), array(), '', true);
 //
 //    wp_enqueue_script('lightbox.min.js', get_theme_file_uri('/assets/js/lightbox.min.js'), array(), '', true);
 //

@@ -8,4 +8,5 @@ get_header(); ?>
 <?php get_template_part('inc/homeEvents'); ?>
 <?php get_template_part('inc/homePortfolio'); ?>
 <?php get_template_part('inc/homePartners'); ?>
+<?php get_template_part('inc/feedback'); ?>
 <?php get_footer();
