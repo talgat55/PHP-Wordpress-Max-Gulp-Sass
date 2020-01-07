@@ -180,6 +180,34 @@ function post_type_portfolio()
     register_post_type('portfolio', $args);
 }
 
+/*
+*  Register Post Type  Partners
+*/
+add_action('init', 'post_type_partners');
+
+function post_type_partners()
+{
+    $labels = array(
+        'name' => 'Партнеры',
+        'singular_name' => 'Партнеры',
+        'all_items' => 'Партнеры',
+        'menu_name' => 'Партнеры' // ссылка в меню в админке
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_position' => 5,
+        'has_archive' => true,
+        'query_var' => "partners",
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail'
+        )
+    );
+    register_post_type('partners', $args);
+}
+
 
 /*
 *  Register Post Type Settings

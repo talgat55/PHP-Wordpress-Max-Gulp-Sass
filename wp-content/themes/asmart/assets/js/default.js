@@ -7,6 +7,7 @@ jQuery(document).ready(function () {
 
     sliderHomePage();
     homePagePortfolioCarousel();
+    partnersCarousel();
 
     certsCarousel();
     modal();
@@ -20,7 +21,6 @@ jQuery(document).ready(function () {
 jQuery(window).load(function () {
     map();
 });
-
 
 
 // ---------------------------------------------------------
@@ -72,7 +72,6 @@ function modal() {
     });
 
 }
-
 
 
 //----------------------------------
@@ -147,7 +146,6 @@ function certsCarousel() {
 }
 
 
-
 function map() {
     "use strict";
 
@@ -215,7 +213,6 @@ function phoneMask() {
 }
 
 
-
 //----------------------------------
 //   Home Slider
 //---------------------------------------
@@ -235,6 +232,7 @@ function sliderHomePage() {
         });
     }
 }
+
 //----------------------------------
 //   Home Portfolio carousel
 //---------------------------------------
@@ -248,6 +246,26 @@ function homePagePortfolioCarousel() {
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 3,
+            arrows: true,
+            dots: true,
+            autoplay: true,
+        });
+    }
+}
+
+//----------------------------------
+//   Partners carousel
+//---------------------------------------
+
+function partnersCarousel() {
+    "use strict";
+    var carouselWrap = jQuery('.partners-section_carousel');
+
+    if (carouselWrap.length) {
+        carouselWrap.slick({
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 4,
             arrows: true,
             dots: true,
             //   autoplay: true,
