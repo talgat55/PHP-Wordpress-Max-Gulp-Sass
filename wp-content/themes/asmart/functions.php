@@ -25,13 +25,13 @@ add_image_size('portfolio-home', 380, 306, true);
 function th_scripts()
 {
 
+    wp_enqueue_style('bootstrap.min', get_theme_file_uri('/assets/css/bootstrap.min.css'), array(), '');
     // Theme stylesheet.
     wp_enqueue_style('th-style', get_stylesheet_uri(), array(), '1');
     wp_enqueue_style('main-style', get_theme_file_uri('/assets/css/style.css'), array(), '1');
 
     wp_deregister_script('jquery');
 
-    wp_enqueue_style('bootstrap.min', get_theme_file_uri('/assets/css/bootstrap.min.css'), array(), '');
 
     wp_enqueue_script('jquery', get_theme_file_uri('/assets/js/jquery-3.2.1.min.js'), array(), '');
 //    wp_enqueue_script('jquery-migrate.min', get_theme_file_uri('/assets/js/jquery-migrate.min.js'), array(), '', true);
