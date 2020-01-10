@@ -309,10 +309,17 @@
   margin-right: -15px; }
 
 .home-portfolio_carousel_item {
-  margin: 0 15px; }
+  margin: 21px 15px  0 15px; }
   .home-portfolio_carousel_item_img-block {
     margin-bottom: 10px;
     position: relative; }
+    .home-portfolio_carousel_item_img-block_overlay {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid #F3F4F5; }
     .home-portfolio_carousel_item_img-block_hover-block {
       position: absolute;
       opacity: 0;

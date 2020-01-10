@@ -35,6 +35,7 @@
                     ?>
                         <div class="home-portfolio_carousel_item">
                             <div class="home-portfolio_carousel_item_img-block">
+                                <div class="home-portfolio_carousel_item_img-block_overlay"></div>
                                 <img src="<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "portfolio-home")[0]; ?>" alt="Изображение слайдера" />
                                     <div class="home-portfolio_carousel_item_img-block_hover-block">
                                         <a href="<?php echo get_the_permalink($post_id); ?> "
