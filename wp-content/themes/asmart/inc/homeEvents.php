@@ -41,11 +41,11 @@ $arg = [
                     } else {
                         $classItem = '__second';
                         $first = false;
-                        $classRow = 'col-lg-12 col-md-12';
+                        $classRow = 'col-lg-12 col-md-12 ';
                     }
 
                     if($i == 1){
-                        echo '<div class="col-lg-6 col-md-12">';
+                        echo '<div class="col-lg-6 col-md-12 padding-right">';
                     }
 
                     ?>

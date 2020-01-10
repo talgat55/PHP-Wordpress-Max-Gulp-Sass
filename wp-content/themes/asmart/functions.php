@@ -5,6 +5,7 @@
 if (function_exists('register_nav_menus')) {
     $menu_arr = array(
         'top_menu' => 'Топ Меню',
+        'footer_menu' => 'Футер Меню',
     );
     register_nav_menus($menu_arr);
 }
@@ -23,6 +24,11 @@ add_image_size('portfolio-home', 380, 306, true);
  */
 function th_scripts()
 {
+
+    // Theme stylesheet.
+    wp_enqueue_style('th-style', get_stylesheet_uri(), array(), '1');
+    wp_enqueue_style('main-style', get_theme_file_uri('/assets/css/style.css'), array(), '1');
+
     wp_deregister_script('jquery');
 
     wp_enqueue_style('bootstrap.min', get_theme_file_uri('/assets/css/bootstrap.min.css'), array(), '');
@@ -48,15 +54,13 @@ add_action('wp_enqueue_scripts', 'th_scripts');
 
 function prefix_add_footer_styles()
 {
-    // Theme stylesheet.
-    wp_enqueue_style('th-style', get_stylesheet_uri(), array(), '1');
 
 
     wp_enqueue_style('normalize', get_theme_file_uri('/assets/css/normalize.css'), array(), '');
 //    wp_enqueue_style('lightbox.min.css', get_theme_file_uri('/assets/css/lightbox.min.css'), array(), '');
     wp_enqueue_style('slick', get_theme_file_uri('/assets/css/slick.css'), array(), '');
     wp_enqueue_style('slick-theme', get_theme_file_uri('/assets/css/slick-theme.css'), array(), '');
-    wp_enqueue_style('main-style', get_theme_file_uri('/assets/css/style.css'), array(), '1');
+
 //    wp_enqueue_style('montserrat', get_theme_file_uri('/assets/fonts/montserrat.css'), array(), '1');
 //    wp_enqueue_style('main-style2', get_theme_file_uri('/assets/css/critical.css'), array(), '1');
 

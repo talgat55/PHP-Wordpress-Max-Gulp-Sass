@@ -230,6 +230,10 @@ function sliderHomePage() {
             dots: true,
             autoplay: true,
         });
+
+        jQuery('.home-slider_slider .slick-dots').wrap("<div class='container  wrap-dots'></div>" );
+
+
     }
 }
 

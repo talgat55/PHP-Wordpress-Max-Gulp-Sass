@@ -17,8 +17,8 @@
                 Будем рады видеть Вас в числе наших партнеров!
             </p>
         </div>
-        <div class="row w-100">
-            <div class="partners-section_carousel w-100">
+        <div class="row  ">
+            <div class="partners-section_carousel  ">
                 <?php
                 $arg = [
                     'posts_per_page' => -1,

@@ -13,8 +13,8 @@
                 Наши проекты
             </h2>
         </div>
-        <div class="row  w-100">
-            <div class="home-portfolio_carousel w-100 d-flex">
+        <div class="row">
+            <div class="home-portfolio_carousel  d-flex">
                 <?php
                 $arg = [
                     'posts_per_page' => -1,
