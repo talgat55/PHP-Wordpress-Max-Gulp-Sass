@@ -43,7 +43,9 @@ function th_scripts()
 //    wp_enqueue_script('lightbox.min.js', get_theme_file_uri('/assets/js/lightbox.min.js'), array(), '', true);
 //
 //
-//    wp_enqueue_script('yandex-maps', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '1', true);
+    if (is_page_template('page-contacts.php')) {
+        wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkewQZi7iY6eOtlXajXXHFWHECGYWqfMs&language=ru', array(), '1');
+    }
 
     wp_enqueue_script('default', get_theme_file_uri('/assets/js/default.js'), array(), '1', true);
 

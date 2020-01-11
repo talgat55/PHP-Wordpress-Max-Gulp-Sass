@@ -5,6 +5,17 @@
 .padding-right {
   padding-right: 0 !important; }
 
+.page-title-main {
+  font-weight: 600;
+  font-size: 1.875rem;
+  line-height: 50px;
+  margin: 0;
+  color: var(--black-color); }
+
+#map {
+  width: 100%;
+  height: 500px; }
+
 .menu-menu-1-container #menu-main {
   margin: 0;
   padding: 0;
@@ -309,7 +320,7 @@
   margin-right: -15px; }
 
 .home-portfolio_carousel_item {
-  margin: 21px 15px  0 15px; }
+  margin: 21px 15px 0 15px; }
   .home-portfolio_carousel_item_img-block {
     margin-bottom: 10px;
     position: relative; }
@@ -508,6 +519,63 @@
     transition: all .3s; }
     .feedback-section .form-feedback .wpcf7-submit:hover {
       background-color: var(--black-color); }
+
+.page-contacts {
+  position: relative; }
+  .page-contacts_first-row {
+    height: 500px;
+    padding: 60px 36px;
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    width: 37%;
+    max-width: 37%;
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15); }
+    .page-contacts_first-row .page-title-main {
+      margin-bottom: 37px; }
+    .page-contacts_first-row_list-contacts {
+      margin: 0 0 10px 0;
+      padding: 0; }
+      .page-contacts_first-row_list-contacts_item {
+        list-style: none;
+        margin-bottom: 22px; }
+        .page-contacts_first-row_list-contacts_item svg {
+          margin-right: 19px; }
+        .page-contacts_first-row_list-contacts_item_phone-link {
+          text-decoration: none;
+          width: 100%;
+          color: var(--black-color);
+          -webkit-transition: all .3s;
+          -o-transition: all .3s;
+          transition: all .3s;
+          display: inline-block; }
+          .page-contacts_first-row_list-contacts_item_phone-link:hover {
+            color: var(--theme-color);
+            text-decoration: none; }
+        .page-contacts_first-row_list-contacts_item_text {
+          margin: 0; }
+    .page-contacts_first-row_heading-soc-links {
+      margin: 0 0 13px;
+      line-height: 26px;
+      font-size: 1rem;
+      color: var(--black-color); }
+    .page-contacts_first-row_soc-links {
+      margin: 0;
+      padding: 0; }
+      .page-contacts_first-row_soc-links_item {
+        list-style: none;
+        padding-right: 11px;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s; }
+        .page-contacts_first-row_soc-links_item:hover {
+          opacity: .5; }
+  .page-contacts_second-row {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0; }
 
 footer {
   background: #E3E3E3;

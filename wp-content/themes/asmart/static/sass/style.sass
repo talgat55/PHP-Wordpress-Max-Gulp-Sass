@@ -17,6 +17,19 @@ $main_font: 'Montserrat', sans-serif
 .padding-right
   padding-right: 0 !important
 
+.page-title-main
+  font-weight: 600
+  font-size: 1.875rem
+  line-height: 50px
+  margin: 0
+  color: var(--black-color)
+
+
+#map
+  width: 100%
+  height: 500px
+
+
 //
 // Header
 //
@@ -103,7 +116,7 @@ $main_font: 'Montserrat', sans-serif
 
   &_second,
   &_first
-    padding: 0!important
+    padding: 0 !important
     color: var(--black-color)
 
     &__title
@@ -141,12 +154,14 @@ $main_font: 'Montserrat', sans-serif
       right: 0
       display: flex
       flex-direction: column
+
       li
         width: 3px
         height: 20px
         background: #FFFFFF
         border-radius: 5px
         margin: 0 0 20px 0
+
         button
           &:before
             display: none
@@ -162,7 +177,7 @@ $main_font: 'Montserrat', sans-serif
   margin-top: 79px
 
   &_first
-    padding-left: 0!important
+    padding-left: 0 !important
     margin-bottom: 90px
 
     .sub-title
@@ -172,11 +187,11 @@ $main_font: 'Montserrat', sans-serif
       margin-bottom: 33px
 
   &_second
-    padding-right: 0!important
+    padding-right: 0 !important
 
     &_list-facts
       margin: -19px 100px 100px 0
-      padding: 0!important
+      padding: 0 !important
 
       &__item
         position: relative
@@ -343,7 +358,7 @@ $main_font: 'Montserrat', sans-serif
     width: 50px
     height: 50px
     background-position: center center !important
-    background-image: url(../images/arrow.svg)!important
+    background-image: url(../images/arrow.svg) !important
     border: 2px solid #F1F2F3
     border-radius: 50%
     background-repeat: no-repeat !important
@@ -359,7 +374,7 @@ $main_font: 'Montserrat', sans-serif
 
 
   .slick-prev
-    background-image: url(../images/arrow-left.svg)!important
+    background-image: url(../images/arrow-left.svg) !important
     left: -53px
 
   .slick-next
@@ -375,11 +390,12 @@ $main_font: 'Montserrat', sans-serif
   margin-right: -15px
 
 .home-portfolio_carousel_item
-  margin: 21px 15px  0 15px
+  margin: 21px 15px 0 15px
 
   &_img-block
     margin-bottom: 10px
     position: relative
+
     &_overlay
       position: absolute
       top: -20px
@@ -485,7 +501,7 @@ $main_font: 'Montserrat', sans-serif
     width: 50px
     height: 50px
     background-position: center center !important
-    background-image: url(../images/arrow.svg)!important
+    background-image: url(../images/arrow.svg) !important
     border: 2px solid #F1F2F3
     border-radius: 50%
     background-repeat: no-repeat !important
@@ -502,7 +518,7 @@ $main_font: 'Montserrat', sans-serif
 
   .slick-prev
     left: -70px
-    background-image: url(../images/arrow-left.svg)!important
+    background-image: url(../images/arrow-left.svg) !important
 
   .slick-next
     right: -70px
@@ -599,6 +615,74 @@ $main_font: 'Montserrat', sans-serif
 
       &:hover
         background-color: var(--black-color)
+
+//
+//  Contacts
+//
+.page-contacts
+  position: relative
+
+  &_first-row
+    height: 500px
+    padding: 60px 36px
+    position: relative
+    z-index: 2
+    background: #fff
+    width: 37%
+    max-width: 37%
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15)
+
+    .page-title-main
+      margin-bottom: 37px
+
+    &_list-contacts
+      margin: 0 0 10px 0
+      padding: 0
+
+      &_item
+        list-style: none
+        margin-bottom: 22px
+
+        svg
+          margin-right: 19px
+        &_phone-link
+          text-decoration: none
+          width: 100%
+          color: var(--black-color)
+          transition: all .3s
+          display: inline-block
+
+          &:hover
+            color: var(--theme-color)
+            text-decoration: none
+
+        &_text
+          margin: 0
+
+    &_heading-soc-links
+      margin: 0 0 13px
+      line-height: 26px
+      font-size: 1rem
+      color: var(--black-color)
+    &_soc-links
+      margin: 0
+      padding: 0
+      &_item
+        list-style: none
+        padding-right: 11px
+        transition: all .3s
+        &:hover
+          opacity: .5
+
+
+
+  &_second-row
+    position: absolute
+    top: 0
+    left: 0
+
+    padding: 0
+
 
 //
 // Footer

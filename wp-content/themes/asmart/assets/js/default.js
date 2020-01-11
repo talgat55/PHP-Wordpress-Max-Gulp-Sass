@@ -14,13 +14,14 @@ jQuery(document).ready(function () {
     mobileMenu();
     phoneMask();
     backToTop();
+    map();
     // end redy function
 });
 
 
-jQuery(window).load(function () {
-    map();
-});
+// jQuery(window).load(function () {
+//
+// });
 
 
 // ---------------------------------------------------------
@@ -149,38 +150,50 @@ function certsCarousel() {
 function map() {
     "use strict";
 
-    let $map = jQuery('#map');
+    var $map = jQuery('#map');
 
 
     if ($map.length) {
-        dinamicWidthMap();
-        ymaps.ready(function () {
-            var myMap = new ymaps.Map('map', {
-                center: [54.959971, 73.353655],
-                zoom: 12,
-                controls: ['zoomControl']
-            }, {
-                // searchControlProvider: 'yandex#search'
+        google.maps.event.addDomListener(window, 'load', init);
+        function init() {
+            // Basic options for a simple Google Map
+            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+            var mapOptions = {
+                // How zoomed in you want the map to start at (always required)
+                zoom: 15,
+                controls: [ ],
+                // The latitude and longitude to center the map (always required)
+                center: new google.maps.LatLng(54.986611, 73.378946), // New York
+
+                // How you would like to style the map.
+                // This is where you would paste any style found on Snazzy Maps.
+                styles: [ ]
+            };
+
+            // Get the HTML DOM element that will contain your map
+            // We are using a div with id="map" seen below in the <body>
+            var mapElement = document.getElementById('map');
+            var image = {
+                url: 'http://localhost:6080/wp-content/themes/asmart/assets/images/marker.svg',
+                size: new google.maps.Size(40, 40),
+                // The origin for this image is (0, 0).
+                origin: new google.maps.Point(0, 0),
+                // The anchor for this image is the base of the flagpole at (0, 32).
+                anchor: new google.maps.Point(0, 40)
+            };
+            // Create the Google Map using our element and options defined above
+            var map = new google.maps.Map(mapElement, mapOptions);
+
+            // Let's also add a marker while we're at it
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(54.986611, 73.378946),
+                map: map,
+                icon: image,
+                title: 'Офис'
             });
+        }
 
 
-            myMap.geoObjects
-            // .add(myPlacemark)
-                .add(new ymaps.Placemark([54.981417, 73.388532], {
-                    balloonContent: 'ул. Почтовая, д. 33, каб. 9',
-                    iconCaption: 'Наш офис'
-                }, {
-                    preset: 'islands#greenDotIconWithCaption'
-                }))
-                .add(new ymaps.Placemark([54.922778, 73.239672], {
-                    balloonContent: 'пос. Магистральный, ул.Строителей, 14Б',
-                    iconCaption: 'Наша база'
-                }, {
-                    preset: 'islands#greenDotIconWithCaption'
-                }));
-            myMap.behaviors.disable('scrollZoom');
-            myMap.behaviors.disable('multiTouch');
-        });
     }
 }
 
