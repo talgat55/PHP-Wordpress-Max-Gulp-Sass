@@ -29,6 +29,95 @@ $main_font: 'Montserrat', sans-serif
   width: 100%
   height: 500px
 
+.post-item
+  margin-bottom: 30px
+
+  &_img-block
+    position: relative
+    &:before
+      content: ""
+      display: block
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: url(../images/news-pattern.png)
+      background-repeat: no-repeat !important
+      background-size: cover !important
+      background-position: center center !important
+
+    &_img
+      width: 100%
+      display: block
+      height: 180px
+      background-position: center center !important
+      background-size: cover !important
+      background-repeat: no-repeat !important
+
+    &_category
+      position: absolute
+      top: 0
+      left: 0
+      display: inline-block
+      font-weight: 500
+      font-size: 0.875rem
+      line-height: 26px
+      color: var(--white-color)
+      padding: 2px 12px
+      background-color: var(--theme-color-alt)
+      border-radius: 0px 0px 5px 0px
+
+    &_addition_date
+      position: absolute
+      bottom: 10px
+      left: 5px
+      color: var(--white-color)
+      font-size: 0.875rem
+
+  &_content-block
+    color: var(--black-color)
+
+    &_title
+      margin: 13px 0 5px
+
+      a
+        font-weight: 600
+        font-size: 1rem
+        line-height: 26px
+        color: var(--black-color)
+        text-decoration: none
+        transition: all .3s
+        display: inline-block
+
+        &:hover
+          text-decoration: none
+          color: var(--theme-color)
+          text-decoration: none
+
+    &_text
+      font-size: 0.75rem
+      line-height: 22px
+      margin-bottom: 13px
+
+      *
+        font-size: 0.75rem
+        line-height: 22px
+        margin-bottom: 0
+
+    &_link
+      transition: all .3s
+      padding: 10px 0
+      &:hover
+        background-color: var(--theme-color)
+        text-decoration: none
+        svg *
+          fill: var(--white-color)!important
+
+      svg
+        margin-left: -60px
+
+
 
 //
 // Header
@@ -97,13 +186,15 @@ $main_font: 'Montserrat', sans-serif
 
   &.link-main
     padding: 11px 28px
+
   &.alt
     background: transparent
-    border: 1px solid  var(--theme-color)
-    color:  var(--theme-color)
+    border: 1px solid var(--theme-color)
+    color: var(--theme-color)
     transition: all .3s
+
     &:hover
-      background:  var(--theme-color)
+      background: var(--theme-color)
       color: var(--white-color)
 
 .sub-title
@@ -717,6 +808,7 @@ $main_font: 'Montserrat', sans-serif
 
   &_partners-list
     margin-bottom: 60px
+
     &_item
       height: 170px
       margin-bottom: 30px
@@ -726,7 +818,6 @@ $main_font: 'Montserrat', sans-serif
 .hero
   height: 200px
   position: relative
-  background: url(../images/hero-pattern.png)
   background-size: cover !important
   background-repeat: no-repeat !important
   background-position: center center !important
@@ -753,6 +844,49 @@ $main_font: 'Montserrat', sans-serif
     position: relative
     text-align: center
 
+//
+// News
+//
+.page-news
+  .hero
+    background-image: url(../images/news-bg.jpg)
+    margin-bottom: 92px
+
+  &_category-block
+    margin: 0 0 50px 0
+    padding: 0
+
+    &_item
+      list-style: none
+
+      &_link
+        font-weight: 500
+        margin-left: 31px
+        line-height: 28px
+        letter-spacing: 0.03em
+        text-transform: uppercase
+        color: var(--theme-color-alt)
+        display: inline-block
+        padding: 4px 33px
+        border: 1px solid var(--theme-color-alt)
+        border-radius: 30px
+        transition: all .3s
+        min-width: 170px
+        text-align: center
+
+        &:hover,
+        &__active
+          background-color: var(--theme-color-alt)
+          border-color: var(--theme-color-alt)
+          color: var(--white-color)
+          text-decoration: none
+
+    &_item:first-child
+      .page-news_category-block_item_link
+        margin-left: 0 !important
+
+  .news-pagination
+    margin: 50px  0  101px
 
 //
 // Footer

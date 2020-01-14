@@ -16,6 +16,86 @@
   width: 100%;
   height: 500px; }
 
+.post-item {
+  margin-bottom: 30px; }
+  .post-item_img-block {
+    position: relative; }
+    .post-item_img-block:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(../images/news-pattern.png);
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-position: center center !important; }
+    .post-item_img-block_img {
+      width: 100%;
+      display: block;
+      height: 180px;
+      background-position: center center !important;
+      background-size: cover !important;
+      background-repeat: no-repeat !important; }
+    .post-item_img-block_category {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      font-weight: 500;
+      font-size: 0.875rem;
+      line-height: 26px;
+      color: var(--white-color);
+      padding: 2px 12px;
+      background-color: var(--theme-color-alt);
+      border-radius: 0px 0px 5px 0px; }
+    .post-item_img-block_addition_date {
+      position: absolute;
+      bottom: 10px;
+      left: 5px;
+      color: var(--white-color);
+      font-size: 0.875rem; }
+  .post-item_content-block {
+    color: var(--black-color); }
+    .post-item_content-block_title {
+      margin: 13px 0 5px; }
+      .post-item_content-block_title a {
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 26px;
+        color: var(--black-color);
+        text-decoration: none;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+        display: inline-block; }
+        .post-item_content-block_title a:hover {
+          text-decoration: none;
+          color: var(--theme-color);
+          text-decoration: none; }
+    .post-item_content-block_text {
+      font-size: 0.75rem;
+      line-height: 22px;
+      margin-bottom: 13px; }
+      .post-item_content-block_text * {
+        font-size: 0.75rem;
+        line-height: 22px;
+        margin-bottom: 0; }
+    .post-item_content-block_link {
+      -webkit-transition: all .3s;
+      -o-transition: all .3s;
+      transition: all .3s;
+      padding: 10px 0; }
+      .post-item_content-block_link:hover {
+        background-color: var(--theme-color);
+        text-decoration: none; }
+        .post-item_content-block_link:hover svg * {
+          fill: var(--white-color) !important; }
+      .post-item_content-block_link svg {
+        margin-left: -60px; }
+
 .menu-menu-1-container #menu-main {
   margin: 0;
   padding: 0;
@@ -612,7 +692,6 @@
 .hero {
   height: 200px;
   position: relative;
-  background: url(../images/hero-pattern.png);
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center center !important; }
@@ -636,6 +715,42 @@
     color: var(--white-color);
     position: relative;
     text-align: center; }
+
+.page-news .hero {
+  background-image: url(../images/news-bg.jpg);
+  margin-bottom: 92px; }
+
+.page-news_category-block {
+  margin: 0 0 50px 0;
+  padding: 0; }
+  .page-news_category-block_item {
+    list-style: none; }
+    .page-news_category-block_item_link {
+      font-weight: 500;
+      margin-left: 31px;
+      line-height: 28px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--theme-color-alt);
+      display: inline-block;
+      padding: 4px 33px;
+      border: 1px solid var(--theme-color-alt);
+      border-radius: 30px;
+      -webkit-transition: all .3s;
+      -o-transition: all .3s;
+      transition: all .3s;
+      min-width: 170px;
+      text-align: center; }
+      .page-news_category-block_item_link:hover, .page-news_category-block_item_link__active {
+        background-color: var(--theme-color-alt);
+        border-color: var(--theme-color-alt);
+        color: var(--white-color);
+        text-decoration: none; }
+  .page-news_category-block_item:first-child .page-news_category-block_item_link {
+    margin-left: 0 !important; }
+
+.page-news .news-pagination {
+  margin: 50px  0  101px; }
 
 footer {
   background: #E3E3E3;
