@@ -96,6 +96,16 @@
       .post-item_content-block_link svg {
         margin-left: -60px; }
 
+.title-third {
+  font-weight: 600;
+  font-size: 1.875rem;
+  line-height: 40px;
+  margin: 0; }
+
+.header {
+  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05); }
+
 .menu-menu-1-container #menu-main {
   margin: 0;
   padding: 0;
@@ -750,7 +760,78 @@
     margin-left: 0 !important; }
 
 .page-news .news-pagination {
-  margin: 50px  0  101px; }
+  margin: 50px 0 101px; }
+
+.single-page-news .breadcrumbs {
+  margin-top: 33px;
+  margin-bottom: 34px; }
+
+.single-page-news_first-block {
+  line-height: 26px;
+  color: #808080;
+  font-size: 0.875rem; }
+  .single-page-news_first-block .col-lg-6 {
+    padding: 0; }
+  .single-page-news_first-block .col-lg-6:first-child {
+    border-bottom: 1px solid #F3F4F5;
+    padding-bottom: 22px; }
+  .single-page-news_first-block_category {
+    padding-left: 37px; }
+
+.single-page-news_content {
+  margin-bottom: 70px; }
+  .single-page-news_content_img {
+    max-width: 570px;
+    float: right;
+    padding-bottom: 40px;
+    padding-left: 40px; }
+  .single-page-news_content .page-title-main {
+    font-size: 1.875rem;
+    line-height: 40px;
+    margin-top: 20px;
+    margin-bottom: 21px; }
+  .single-page-news_content_text {
+    margin-bottom: 12px; }
+  .single-page-news_content_link-download {
+    line-height: 30px;
+    color: #3A5D86; }
+    .single-page-news_content_link-download svg {
+      margin-right: 10px; }
+
+.single-page-news .title-third {
+  margin-bottom: 41px; }
+
+.single-page-news_related-list {
+  margin-bottom: 90px; }
+
+.breadcrumbs {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .breadcrumbs .sep {
+    padding: 0 5px; }
+  .breadcrumbs li {
+    list-style: none; }
+    .breadcrumbs li a {
+      text-decoration: none;
+      color: var(--black-color);
+      font-size: 0.875rem;
+      -webkit-transition: all .3s;
+      -o-transition: all .3s;
+      transition: all .3s; }
+      .breadcrumbs li a:hover {
+        color: var(--theme-color); }
+  .breadcrumbs .current {
+    text-decoration: none;
+    color: var(--black-color);
+    font-size: 0.875rem; }
 
 footer {
   background: #E3E3E3;

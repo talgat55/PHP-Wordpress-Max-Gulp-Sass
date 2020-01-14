@@ -9,7 +9,6 @@ get_header(); ?>
             <div class="row">
                 <ul class="page-news_category-block d-flex w-100  align-items-center w-100">
                     <?php
-
                     $categories = get_categories(array(
                         'taxonomy' => 'category',
                         'type' => 'post',
