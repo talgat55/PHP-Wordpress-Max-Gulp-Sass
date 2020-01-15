@@ -37,9 +37,7 @@ get_header(); ?>
                     </div>
                     <div class="page-service_second-row col  d-flex justify-content-center">ПРАЙС-<span>ЛИСТ</span></div>
                 </div>
-
                 <?php get_template_part('inc/feedback'); ?>
-
             </div>
         </div>
     </div>

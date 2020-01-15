@@ -48,9 +48,7 @@
                                 <? echo get_the_title($post_id) ?>
                             </a>
                             <div class="home-portfolio_carousel_item_text">
-                                <?php
-                                echo mb_strimwidth(get_the_content($post_id), 0, 125, "...");
-                                ?>
+                                <?php  echo mb_strimwidth(get_the_content($post_id), 0, 125, "...");   ?>
                             </div>
                         </div>
                     <?php
