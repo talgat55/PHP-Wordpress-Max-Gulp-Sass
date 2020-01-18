@@ -17,6 +17,7 @@ if (function_exists('register_nav_menus')) {
 add_theme_support('post-thumbnails');
 add_image_size('cert-img', 260, 366, false);
 add_image_size('portfolio-home', 380, 306, true);
+add_image_size('awards-img', 279, 380, true);
 
 
 /**
@@ -155,6 +156,62 @@ function post_type_portfolio()
         )
     );
     register_post_type('portfolio', $args);
+}
+
+
+
+/*
+*  Register Post Type  Team
+*/
+add_action('init', 'post_type_team');
+
+function post_type_team()
+{
+    $labels = array(
+        'name' => 'Сотрудники',
+        'singular_name' => 'Сотрудники',
+        'all_items' => 'Сотрудники',
+        'menu_name' => 'Сотрудники' // ссылка в меню в админке
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_position' => 5,
+        'has_archive' => true,
+        'query_var' => "team",
+        'supports' => array(
+            'title',
+            'thumbnail'
+        )
+    );
+    register_post_type('team', $args);
+}
+
+/*
+*  Register Post Type  Awards
+*/
+add_action('init', 'post_type_awards');
+
+function post_type_awards()
+{
+    $labels = array(
+        'name' => 'Награды',
+        'singular_name' => 'Награды',
+        'all_items' => 'Награды',
+        'menu_name' => 'Награды' // ссылка в меню в админке
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_position' => 5,
+        'has_archive' => true,
+        'query_var' => "awards",
+        'supports' => array(
+            'title',
+            'thumbnail'
+        )
+    );
+    register_post_type('awards', $args);
 }
 
 /*
@@ -370,3 +427,7 @@ function dimox_breadcrumbs()
         echo $wrap_after;
     }
 }
+
+//create a custom taxonomy name it topics for your posts
+
+ 

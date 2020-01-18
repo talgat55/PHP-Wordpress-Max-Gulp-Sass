@@ -15,6 +15,8 @@ jQuery(document).ready(function () {
     phoneMask();
     backToTop();
     map();
+    teamCarousel();
+    awardsCarousel();
     // end redy function
 });
 
@@ -155,19 +157,20 @@ function map() {
 
     if ($map.length) {
         google.maps.event.addDomListener(window, 'load', init);
+
         function init() {
             // Basic options for a simple Google Map
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
             var mapOptions = {
                 // How zoomed in you want the map to start at (always required)
                 zoom: 15,
-                controls: [ ],
+                controls: [],
                 // The latitude and longitude to center the map (always required)
                 center: new google.maps.LatLng(54.986611, 73.378946), // New York
 
                 // How you would like to style the map.
                 // This is where you would paste any style found on Snazzy Maps.
-                styles: [ ]
+                styles: []
             };
 
             // Get the HTML DOM element that will contain your map
@@ -244,7 +247,7 @@ function sliderHomePage() {
             autoplay: true,
         });
 
-        jQuery('.home-slider_slider .slick-dots').wrap("<div class='container  wrap-dots'></div>" );
+        jQuery('.home-slider_slider .slick-dots').wrap("<div class='container  wrap-dots'></div>");
 
 
     }
@@ -289,3 +292,46 @@ function partnersCarousel() {
         });
     }
 }
+
+//----------------------------------
+//   Team carousel
+//---------------------------------------
+
+function teamCarousel() {
+    "use strict";
+    var carouselWrap = jQuery('.page-about_list-team');
+
+    if (carouselWrap.length) {
+        carouselWrap.slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            arrows: true,
+            dots: true,
+            //   autoplay: true,
+        });
+    }
+}
+
+//----------------------------------
+//   Awards carousel
+//---------------------------------------
+
+function awardsCarousel() {
+    "use strict";
+    var carouselWrap = jQuery('.page-about_awards_list-items');
+
+    if (carouselWrap.length) {
+        carouselWrap.slick({
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            arrows: true,
+            dots: true,
+            //   autoplay: true,
+        });
+    }
+}
+
+
+
