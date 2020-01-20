@@ -18,6 +18,7 @@ add_theme_support('post-thumbnails');
 add_image_size('cert-img', 260, 366, false);
 add_image_size('portfolio-home', 380, 306, true);
 add_image_size('awards-img', 279, 380, true);
+add_image_size('advertissers-img', 270, 334, true);
 
 
 /**

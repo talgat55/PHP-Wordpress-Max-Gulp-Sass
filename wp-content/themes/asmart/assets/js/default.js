@@ -17,6 +17,7 @@ jQuery(document).ready(function () {
     map();
     teamCarousel();
     awardsCarousel();
+    adversisticsCarousel();
     // end redy function
 });
 
@@ -288,7 +289,7 @@ function partnersCarousel() {
             slidesToScroll: 4,
             arrows: true,
             dots: true,
-            //   autoplay: true,
+              autoplay: true,
         });
     }
 }
@@ -308,7 +309,7 @@ function teamCarousel() {
             slidesToScroll: 3,
             arrows: true,
             dots: true,
-            //   autoplay: true,
+              autoplay: true,
         });
     }
 }
@@ -328,7 +329,29 @@ function awardsCarousel() {
             slidesToScroll: 4,
             arrows: true,
             dots: true,
-            //   autoplay: true,
+              autoplay: true,
+        });
+    }
+}
+
+
+
+//----------------------------------
+//   gallery  carousel  in page advertisers
+//---------------------------------------
+
+function adversisticsCarousel() {
+    "use strict";
+    var carouselWrap = jQuery('.page-advertisers_gallery');
+
+    if (carouselWrap.length) {
+        carouselWrap.slick({
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            arrows: true,
+            dots: false,
+              // autoplay: true,
         });
     }
 }
