@@ -76,6 +76,8 @@
 
 
 </footer>
+<?php get_template_part('inc/feedback-modal'); ?>
+<?php get_template_part('inc/success-modal'); ?>
 <!--<a id="back_to_top" href="#">-->
 <!--    <div class="ba-block">-->
 <!--        <img src="--><?php //echo get_theme_file_uri('/assets/images/arrow-up.png') ?><!--" alt="Стрелка верх">-->

@@ -18,6 +18,8 @@ jQuery(document).ready(function () {
     teamCarousel();
     awardsCarousel();
     adversisticsCarousel();
+    closeModal();
+
     // end redy function
 });
 
@@ -289,7 +291,7 @@ function partnersCarousel() {
             slidesToScroll: 4,
             arrows: true,
             dots: true,
-              autoplay: true,
+            autoplay: true,
         });
     }
 }
@@ -309,7 +311,7 @@ function teamCarousel() {
             slidesToScroll: 3,
             arrows: true,
             dots: true,
-              autoplay: true,
+            autoplay: true,
         });
     }
 }
@@ -329,11 +331,10 @@ function awardsCarousel() {
             slidesToScroll: 4,
             arrows: true,
             dots: true,
-              autoplay: true,
+            autoplay: true,
         });
     }
 }
-
 
 
 //----------------------------------
@@ -351,10 +352,45 @@ function adversisticsCarousel() {
             slidesToScroll: 4,
             arrows: true,
             dots: false,
-              // autoplay: true,
+            // autoplay: true,
         });
     }
 }
 
 
+//----------------------------------
+//   close Modal
+//---------------------------------------
 
+function closeModal() {
+    "use strict";
+    jQuery('.modal-main .close-modal-custom').click(function () {
+        jQuery('.modal-main').removeClass('active');
+        return false;
+    });
+    jQuery('.success-modal-main .close-modal-custom').click(function () {
+        jQuery('.success-modal-main').removeClass('active');
+        return false;
+    });
+}
+
+//----------------------------------
+//   Success Modal
+//---------------------------------------
+
+function successModal() {
+    "use strict";
+    jQuery('.success-modal-main, .overlay-layer').addClass('active');
+    setTimeout(function () {
+        jQuery('.success-modal-main, .overlay-layer').removeClass('active');
+    }, 2000);
+}
+
+document.addEventListener('wpcf7mailsent', function (event) {
+
+    if (event.detail.contactFormId == "51") {
+        successModal();
+    }
+
+
+}, false);

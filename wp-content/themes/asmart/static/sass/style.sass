@@ -1418,6 +1418,7 @@ $main_font: 'Montserrat', sans-serif
 
 .page-archive
   margin-bottom: 90px
+
   .hero
     background-image: url(../images/archive-bg.jpg)
     margin-bottom: 92px
@@ -1497,6 +1498,115 @@ $main_font: 'Montserrat', sans-serif
         &_text
           font-size: 0.75rem
           line-height: 20px
+//
+//  Modal
+//
+.modal-main
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 99
+  transition: all .3s
+  visibility: hidden
+  opacity: 0
+
+  &.active
+    visibility: visible !important
+    opacity: 1 !important
+
+  .feedback-section
+    width: 570px
+    padding: 75px 48px
+    background-color: #fff
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15)
+
+    .sub-title
+      font-size: 1.875rem
+      text-align: center
+      line-height: 40px
+
+    .feedback-section_text,
+    .form-feedback
+      text-align: center
+
+    .close-modal-custom
+      position: absolute
+      top: -25px
+      right: -60px
+      transition: all .3s
+
+      &:hover
+        opacity: .5
+
+.success-modal-main
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 99
+  transition: all .3s
+  visibility: hidden
+  opacity: 0
+
+  &.active
+    visibility: visible !important
+    opacity: 1 !important
+
+  .success-modal
+    padding: 192px 108px
+    text-align: center
+    background-color: #fff
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15)
+
+    .close-modal-custom
+      position: absolute
+      top: -25px
+      right: -60px
+      transition: all .3s
+
+      &:hover
+        opacity: .5
+
+    &_title
+      font-weight: 600
+      font-size: 30px
+      line-height: 40px
+      margin: 0 0 0 21px
+
+    &_text
+      line-height: 26px
+      margin-bottom: 20px
+
+    &_link
+      line-height: 26px
+      text-align: center
+      text-decoration-line: underline
+      color: #13273F
+      transition: all .3s
+      &:hover
+        text-decoration: none
+        color: var(--theme-color)
+
+
+.overlay-layer
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 77
+  background-color: rgba(0, 0, 0, .5)
+  opacity: 0
+  visibility: hidden
+  transition: all .3s
+
+  &.active
+    opacity: 1
+    visibility: visible
+
 
 //
 //  Last block archive
@@ -1604,5 +1714,6 @@ footer
 
 
 
-
+div.wpcf7-mail-sent-ok
+  display: none!important
 
