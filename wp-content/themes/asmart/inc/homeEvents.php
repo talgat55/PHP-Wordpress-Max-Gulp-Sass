@@ -9,7 +9,7 @@
 <?php
 $arg = [
     'posts_per_page' => 3,
-    'post_type' => 'events',
+    'post_type' => 'post',
     'orderby' => 'date',
     'order' => 'ASC',
     'status' => 'publish'
@@ -32,8 +32,9 @@ $arg = [
                     $the_query->the_post();
                     $post_id = $the_query->post->ID;
                     $anons = get_field('anons', $post_id);
-                    $cat = get_field('part', $post_id);
+                    $category = get_the_category($post_id);
                     $classItem = $i == 0 ? '__first' : '__second';
+
                     if ($i == 0) {
                         $classItem = '__first';
                         $first = true;
@@ -55,7 +56,7 @@ $arg = [
                              style="background: url(<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "full")[0]; ?>)"
                         >
                             <div class="events-section_list_item_category">
-                                <?php echo $cat ;?>
+                                <?php echo  $category[0]->name ;?>
                             </div>
                         <div class="events-section_list_item_content">
                             <a href="<?php echo get_the_permalink($post_id); ?>" class="events-section_list_item_content_title">
@@ -91,7 +92,7 @@ $arg = [
                 ?>
             </div>
             <div class="d-flex w-100 justify-content-center">
-                <a href="#" class="link link-main">
+                <a href="/news/" class="link link-main">
                     все события
                 </a>
             </div>

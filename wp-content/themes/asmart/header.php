@@ -18,7 +18,11 @@
           type="image/x-icon"/>
 
     <?php wp_head(); ?>
-
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var myajax = {"url":"<?=admin_url('admin-ajax.php'); ?>"};
+        /* ]]> */
+    </script>
     <!--    <script type="application/ld+json">-->
     <!--        {-->
     <!--            "@context": "http://schema.org",-->
@@ -47,7 +51,12 @@
                     </svg>
                 </a>
                 <?php wp_nav_menu('container=nav&menu_id=menu-main&menu_class=mobile-main-container clearfix&theme_location=top_menu'); ?>
+                <a href="#" class="menu-icon-toggle"><span></span></a>
             </div>
         </div>
     </header>
+    <div class="mobile-menu">
+        <?php wp_nav_menu('container=div&menu_id=menu-mobile&menu_class=mobile-main-container clearfix&theme_location=top_menu'); ?>
+    </div>
+
 

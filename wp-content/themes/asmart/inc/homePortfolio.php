@@ -57,7 +57,7 @@
                 ?>
             </div>
             <div class="d-flex w-100 justify-content-center">
-                <a href="#" class="link link-main">
+                <a href="/nashi-proekti/" class="link link-main">
                     Смотреть все проекты
                 </a>
             </div>

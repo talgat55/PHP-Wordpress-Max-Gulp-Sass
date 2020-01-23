@@ -36,10 +36,9 @@ function th_scripts()
 
 
     wp_enqueue_script('jquery', get_theme_file_uri('/assets/js/jquery-3.2.1.min.js'), array(), '');
-//    wp_enqueue_script('jquery-migrate.min', get_theme_file_uri('/assets/js/jquery-migrate.min.js'), array(), '', true);
+    wp_enqueue_script('jquery-migrate.min', get_theme_file_uri('/assets/js/jquery.matchHeight.js'), array(), '', true);
     wp_enqueue_script('slick.min', get_theme_file_uri('/assets/js/slick.min.js'), array(), '', true);
-//    wp_enqueue_script('lazy', get_theme_file_uri('/assets/js/jquery.lazy.min.js'), array(), '', true);
-//
+
     wp_enqueue_script('jquery.inputmask', get_theme_file_uri('/assets/js/jquery.inputmask.js'), array(), '', true);
 //
 //    wp_enqueue_script('lightbox.min.js', get_theme_file_uri('/assets/js/lightbox.min.js'), array(), '', true);
@@ -74,33 +73,7 @@ function prefix_add_footer_styles()
 add_action('get_footer', 'prefix_add_footer_styles');
 
 
-/*
-*  Register Post Type  Events
-*/
-add_action('init', 'post_type_events');
 
-function post_type_events()
-{
-    $labels = array(
-        'name' => 'События',
-        'singular_name' => 'События',
-        'all_items' => 'События',
-        'menu_name' => 'События' // ссылка в меню в админке
-    );
-    $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'menu_position' => 5,
-        'has_archive' => true,
-        'query_var' => "events",
-        'supports' => array(
-            'title',
-            'editor',
-            'thumbnail'
-        )
-    );
-    register_post_type('events', $args);
-}
 
 /*
 *  Register Post Type  Home slider
@@ -158,7 +131,6 @@ function post_type_portfolio()
     );
     register_post_type('portfolio', $args);
 }
-
 
 
 /*
@@ -261,7 +233,6 @@ if (function_exists('acf_add_options_page')) {
 }
 
 
-
 /*
  * Breadcrumb
  */
@@ -353,7 +324,7 @@ function dimox_breadcrumbs()
                 if (!$show_current || get_query_var('cpage')) $cats = preg_replace("#^(.+)$sep$#", "$1", $cats);
                 $cats = preg_replace('#<a([^>]+)>([^<]+)<\/a>#', $link_before . '<a$1' . $link_attr . '>' . $link_in_before . '$2' . $link_in_after . '</a>' . $link_after, $cats);
 //                echo $cats;
-                echo $link_before . '<a href="/news" ' . $link_attr . '>' . $link_in_before . 'Новости' . $link_in_after . '</a>' . $link_after .$sep;
+                echo $link_before . '<a href="/news" ' . $link_attr . '>' . $link_in_before . 'Новости' . $link_in_after . '</a>' . $link_after . $sep;
                 if (get_query_var('cpage')) {
                     echo $sep . sprintf($link, get_permalink(), get_the_title()) . $sep . $before . sprintf($text['cpage'], get_query_var('cpage')) . $after;
                 } else {
@@ -430,5 +401,83 @@ function dimox_breadcrumbs()
 }
 
 //create a custom taxonomy name it topics for your posts
+
+/**
+ *  Event items
+ * @param $term
+ */
+function eventItems($term, $page = '')
+{
+
+
+    $arg = [
+        'posts_per_page' => 12,
+        'post_type' => 'post',
+        'orderby' => 'date',
+        'order' => 'ASC',
+        'status' => 'publish',
+    ];
+    if ($term != 'all') {
+        $arg['cat'] = $term;
+    }
+    if (!empty($page)) {
+        $arg['paged'] = $page;
+    } else {
+        $arg['paged'] = '1';
+    }
+
+    ?>
+    <?php
+    $the_query = new WP_Query($arg);
+
+    while ($the_query->have_posts()) :
+        $the_query->the_post();
+        $post_id = $the_query->post->ID;
+        get_template_part('inc/post-item');
+    endwhile;
+
+}
+
+
+/**
+ * AJAX Load  Cat
+ */
+
+function be_ajax_cat_events()
+{
+
+    ob_start();
+    eventItems($_POST['term'], '');
+    wp_reset_postdata();
+    $data = ob_get_clean();
+    wp_send_json_success($data);
+    wp_die();
+}
+
+add_action('wp_ajax_be_ajax_cat_events', 'be_ajax_cat_events');
+add_action('wp_ajax_nopriv_be_ajax_cat_events', 'be_ajax_cat_events');
+
+/**
+ * AJAX Load  News
+ */
+
+function be_ajax_events_load()
+{
+    $count = wp_count_posts('post');
+    ob_start();
+    eventItems($_POST['term'], $_POST['page']);
+    wp_reset_postdata();
+    $data = ob_get_clean();
+    $response = [
+        'data' => $data,
+        'count' => $count
+    ];
+    wp_send_json_success($response);
+    wp_die();
+}
+
+add_action('wp_ajax_be_ajax_events_load', 'be_ajax_events_load');
+add_action('wp_ajax_nopriv_be_ajax_events_load', 'be_ajax_events_load');
+
 
  

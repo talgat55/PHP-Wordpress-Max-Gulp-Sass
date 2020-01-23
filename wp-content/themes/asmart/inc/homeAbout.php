@@ -28,7 +28,7 @@
                     качество полиграфии оценили наши многочисленные партнеры и читатели.
 
                 </p>
-                <a href="<?= $url; ?>" class="link link-main">
+                <a href="/about/" class="link link-main">
                     подробнее
                 </a>
             </div>

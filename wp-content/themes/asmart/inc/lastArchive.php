@@ -16,7 +16,7 @@
                 Архив публикаций содержит в себе предыдущие выпуски журналов редакции
             </p>
             <div class="last-archive_link   w-100 justify-content-center">
-                <a href="#" class="link link-main alt">
+                <a href="/archive/" class="link link-main alt">
                     АРХИВ НОМЕРОВ
                 </a>
             </div>

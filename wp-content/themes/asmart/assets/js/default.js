@@ -8,7 +8,6 @@ jQuery(document).ready(function () {
     sliderHomePage();
     homePagePortfolioCarousel();
     partnersCarousel();
-
     certsCarousel();
     modal();
     mobileMenu();
@@ -19,6 +18,21 @@ jQuery(document).ready(function () {
     awardsCarousel();
     adversisticsCarousel();
     closeModal();
+    scrollFirstSlider();
+    OpenModal();
+    eventCatAjax();
+
+
+
+    $('.menu-icon-toggle').on('click', function(e) {
+        $('body').toggleClass('open');
+
+        e.preventDefault();
+    });
+    //
+    // Match height in events
+    //
+    jQuery('.page-news_list-row .post-item').matchHeight();
 
     // end redy function
 });
@@ -247,7 +261,7 @@ function sliderHomePage() {
             slidesToScroll: 1,
             arrows: false,
             dots: true,
-            autoplay: true,
+            // autoplay: true,
         });
 
         jQuery('.home-slider_slider .slick-dots').wrap("<div class='container  wrap-dots'></div>");
@@ -272,6 +286,35 @@ function homePagePortfolioCarousel() {
             arrows: true,
             dots: true,
             autoplay: true,
+            responsive: [
+                {
+                    breakpoint: 1100,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
         });
     }
 }
@@ -292,6 +335,35 @@ function partnersCarousel() {
             arrows: true,
             dots: true,
             autoplay: true,
+            responsive: [
+                {
+                    breakpoint: 1100,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
         });
     }
 }
@@ -365,11 +437,11 @@ function adversisticsCarousel() {
 function closeModal() {
     "use strict";
     jQuery('.modal-main .close-modal-custom').click(function () {
-        jQuery('.modal-main').removeClass('active');
+        jQuery('.modal-main, .overlay-layer').removeClass('active');
         return false;
     });
     jQuery('.success-modal-main .close-modal-custom').click(function () {
-        jQuery('.success-modal-main').removeClass('active');
+        jQuery('.success-modal-main, .overlay-layer').removeClass('active');
         return false;
     });
 }
@@ -386,11 +458,116 @@ function successModal() {
     }, 2000);
 }
 
-document.addEventListener('wpcf7mailsent', function (event) {
+//----------------------------------
+//     Modal   Main
+//---------------------------------------
 
+function OpenModal() {
+    "use strict";
+
+    jQuery(".page-portfolio_list-portfolio_item .link.link-main , .page-partners .link.link-main.alt").click(function () {
+
+        jQuery('.modal-main, .overlay-layer').addClass('active');
+
+        return false;
+    });
+
+}
+
+
+//----------------------------------
+//    First slider scroll
+//---------------------------------------
+
+function scrollFirstSlider() {
+    "use strict";
+    jQuery(".home-slider_arrow-down").click(function () {
+
+        jQuery('html, body').animate({
+            scrollTop: jQuery(".home-about").offset().top - 80
+        }, 1000);
+        return false;
+    });
+}
+
+//----------------------------------
+//    Ajax news
+//---------------------------------------
+function eventCatAjax() {
+    "use strict";
+
+    jQuery('body').on('click', '.page-news_category-block_item_link', function () {
+
+        var activeClass = 'page-news_category-block_item_link__active';
+        jQuery('.page-news_category-block_item_link').removeClass(activeClass);
+        jQuery(this).addClass(activeClass);
+        var $term = jQuery(this).attr('data-slug');
+        var data = {
+            action: 'be_ajax_cat_events',
+            term: $term
+        };
+        jQuery.post(myajax.url, data, function (res) {
+            if (res.success) {
+                if (res.data != '') {
+                    jQuery('.page-news_list-row')
+                        .html(' ')
+                        .append(res.data);
+                } else {
+                    console.log(res);
+                }
+            }
+        }).fail(function (xhr, textStatus, e) {
+            console.log(xhr.responseText);
+        });
+        return false;
+    });
+
+    //
+    // Load more
+    //
+    jQuery('body').on('click', '.page-news .load-more', function () {
+
+        var $page = jQuery(this).attr('data-page');
+        var $term = jQuery('.page-news_category-block_item_link__active').attr('data-slug');
+
+        var data = {
+            action: 'be_ajax_events_load',
+            page: $page,
+            term: $term
+        };
+        jQuery(this).attr('data-page' , ++$page );
+
+
+        jQuery.post(myajax.url, data, function (res) {
+            if (res.success) {
+                if (res.data.data != '') {
+                    var countItems = jQuery('.page-news_list-row .post-item').length;
+                    if( res.data.count.publish == countItems){
+                        jQuery('.page-news .load-more').fadeOut();
+                    }
+                    if(res.data.data.length > 4){
+                        jQuery('.page-news_list-row')
+                            .append(res.data.data);
+                    }else{
+                        jQuery('.page-news_list-row').after('<p class="no-items-text">Записей больше нет</p>');
+                    }
+                } else {
+                    console.log(res);
+                }
+            }
+        }).fail(function (xhr, textStatus, e) {
+            console.log(xhr.responseText);
+        });
+        return false;
+    });
+
+
+
+
+}
+
+document.addEventListener('wpcf7mailsent', function (event) {
     if (event.detail.contactFormId == "51") {
         successModal();
     }
-
-
 }, false);

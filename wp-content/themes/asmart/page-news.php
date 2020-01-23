@@ -40,14 +40,15 @@ get_header(); ?>
 
                     <?php endforeach; ?>
                 </ul>
-                <div class="page-news_list-row row">
+                <div class="page-news_list-row row  " >
                     <?php
                     $arg = [
                         'posts_per_page' => 12,
                         'post_type' => 'post',
                         'orderby' => 'date',
                         'order' => 'ASC',
-                        'status' => 'publish'
+                        'status' => 'publish',
+                        'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1),
                     ];
                     ?>
                     <?php
@@ -62,7 +63,7 @@ get_header(); ?>
                     ?>
                 </div>
                 <div class="news-pagination d-flex justify-content-center w-100">
-                    <a href="<?=$url; ?>" class="link link-main alt">
+                    <a href="<?=$url; ?>" class="link link-main alt load-more" data-page="2">
                         Показать ещё
                     </a>
                 </div>

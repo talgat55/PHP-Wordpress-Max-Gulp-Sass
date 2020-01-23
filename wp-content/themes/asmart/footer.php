@@ -12,13 +12,13 @@
                     © Все права защищены, 2019
                 </p>
             </div>
-            <div class="second-row col d-flex">
+            <div class="second-row col d-md-flex">
                 <div class="col-lg-7 col-md-7 col-sm-12">
                     <?php wp_nav_menu('container=div&menu_id=menu-footer&menu_class=menu-footer-container clearfix&theme_location=footer_menu'); ?>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-12">
                     <div class="footer_top d-flex">
-                        <div class="col-md-6 col-sm-12">
+                        <div class="second-row_footer_top_first col-md-6 col-sm-6">
                             <a href="mailto:maxiomsk01@mail.ru" class="footer_top_mail">
                                 maxiomsk01@mail.ru
                             </a>
@@ -48,7 +48,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-6 col-sm-12 d-flex justify-content-end">
+                        <div class="second-row_footer_top_second col-md-6 col-sm-6 d-flex justify-content-end">
                             <ul class="footer_top_list-phones">
                                 <li class="footer_top_list-phones_item">
                                     <a href="tel:+ 7 (8312) 20-16-32" class="footer_top_list-phones_item_link">
@@ -76,7 +76,13 @@
 
 
 </footer>
-<?php get_template_part('inc/feedback-modal'); ?>
+<?php
+if (is_page_template('page-partners.php')) {
+    get_template_part('inc/partners-modal');
+}else{
+    get_template_part('inc/feedback-modal');
+}
+?>
 <?php get_template_part('inc/success-modal'); ?>
 <!--<a id="back_to_top" href="#">-->
 <!--    <div class="ba-block">-->
