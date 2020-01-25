@@ -12,7 +12,7 @@ get_header(); ?>
                         <?php the_content(); ?>
                     <?php endwhile; ?>
                 </div>
-                <div class="row w-100">
+                <div class="d-flex w-100">
                     <div class="page-service_first-row col">
                         <h2 class="page-service_sub-title">
                             Прайс-лист

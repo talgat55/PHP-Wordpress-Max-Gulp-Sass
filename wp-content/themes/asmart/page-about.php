@@ -84,7 +84,7 @@ get_header(); ?>
             <div class="row">
                 <div class="page-about_awards w-100">
                     <div class="page-about_awards_first-block">
-                        <div class="d-flex">
+                        <div class="d-md-flex">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="page-about_awards_first-block_blockquote">
                                     По результатам отраслевых выставок журнал «Максимум» неоднократно награждался

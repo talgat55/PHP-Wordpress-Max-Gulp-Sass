@@ -9,7 +9,7 @@ get_header(); ?>
             <div class="row">
 
 
-                <ul class="page-archive_list-years d-flex w-100  align-items-center w-100">
+                <ul class="page-archive_list-years d-lg-flex w-100  align-items-center w-100">
                     <?php
                     $categories = [
                         '2009',
@@ -19,7 +19,7 @@ get_header(); ?>
                         '2005',
                     ]
                     ?>
-                    <li class="page-archive_list-years_item d-flex">
+                    <li class="page-archive_list-years_item  ">
                         <a
                                 href="#"
                                 class="page-archive_list-years_item_link  page-archive_list-years_item_link__active"
@@ -29,7 +29,7 @@ get_header(); ?>
                         </a>
                     </li>
                     <?php foreach ($categories as $category) : ?>
-                        <li class="page-archive_list-years_item d-flex">
+                        <li class="page-archive_list-years_item  ">
                             <a
                                     href="#"
                                     class="page-archive_list-years_item_link"

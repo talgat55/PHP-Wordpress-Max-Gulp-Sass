@@ -25,7 +25,7 @@ get_header(); ?>
                         $post_id = $the_query->post->ID;
                         ?>
                         <li class="page-portfolio_list-portfolio_item  row  align-items-center">
-                            <div class="page-portfolio_list-portfolio_item_content col-md-6 col-sm-12">
+                            <div class="page-portfolio_list-portfolio_item_content  col-lg-6  col-md-12 col-sm-12">
                                 <h3 class="page-portfolio_list-portfolio_item_content_title">
                                     <?php echo get_the_title($post_id); ?>
                                 </h3>
@@ -42,7 +42,7 @@ get_header(); ?>
                                 </div>
 
                             </div>
-                            <div class="page-portfolio_list-portfolio_item_img  col-md-6 col-sm-12">
+                            <div class="page-portfolio_list-portfolio_item_img  col-lg-6   col-md-12 col-sm-12">
                                 <div class="page-portfolio_list-portfolio_item_img_img-wrapper">
                                     <img src="<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "full")[0]; ?>"
                                          alt="Изображение"/>

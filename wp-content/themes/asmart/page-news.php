@@ -7,7 +7,7 @@ get_header(); ?>
         <?php get_template_part('inc/hero'); ?>
         <div class="container">
             <div class="row">
-                <ul class="page-news_category-block d-flex w-100  align-items-center w-100">
+                <ul class="page-news_category-block d-lg-flex w-100  align-items-center w-100">
                     <?php
                     $categories = get_categories(array(
                         'taxonomy' => 'category',
@@ -18,7 +18,7 @@ get_header(); ?>
                     ));
                     array_shift($categories);  // delete first element array uncategories
                     ?>
-                    <li class="page-news_category-block_item d-flex">
+                    <li class="page-news_category-block_item  ">
                         <a
                                 href="#"
                                 class="page-news_category-block_item_link  page-news_category-block_item_link__active"

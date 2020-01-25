@@ -1036,6 +1036,8 @@ $main_font: 'Montserrat', sans-serif
     thead tr
       background-color: transparent !important
 
+  &_first-row
+    padding-left: 0
 
   &_second-row
     padding-right: 0
@@ -1060,6 +1062,9 @@ $main_font: 'Montserrat', sans-serif
     background-image: url(../images/portfolio-bg.jpg)
     margin-bottom: 90px
 
+  &_list-portfolio_item_content_links .alt
+    margin-left: 30px
+
   &_list-portfolio
     margin: 0
     padding: 0
@@ -1080,9 +1085,6 @@ $main_font: 'Montserrat', sans-serif
           line-height: 26px
           margin-bottom: 33px
 
-        &_links
-          .alt
-          margin-left: 30px
 
       &_img
         &_img-wrapper
@@ -1736,8 +1738,8 @@ div.wpcf7-mail-sent-ok
   display: block
   width: 100%
   text-align: center
-$indigo: #536dc8
-$danube: #6191d1
+$indigo: #000
+$danube: #000
 $white: #000
 $bermuda: #77D7B9
 
@@ -1860,6 +1862,14 @@ $bermuda: #77D7B9
   transition: all .3s
   opacity: 0
 
+  .header-logo-mobile
+    margin: 70px auto 26px
+    display: table
+
+  .menu-menu-1-container
+    display: flex
+    justify-content: center
+
   .open &
     visibility: visible
     opacity: 1
@@ -1869,6 +1879,7 @@ $bermuda: #77D7B9
     margin-bottom: 5px
     transform: translateX(20px)
     transition: all 0.3s
+    list-style: none
     $time-offset-close: 0
     @for $i from 9 through 1
       &:nth-child(#{$i})
@@ -1894,7 +1905,7 @@ $bermuda: #77D7B9
 
   a
     position: relative
-    font-size: 24px
+    font-size: 15px
     text-decoration: none
     color: $danube
 
@@ -1971,6 +1982,14 @@ $bermuda: #77D7B9
 
     #menu-footer
       column-count: 2
+  .page-portfolio
+    &_list-portfolio_item_img_img-wrapper
+      img
+        width: 100%
+
+    .link.link-main
+      font-size: .875rem
+      padding: 11px 15px
 
 @media (max-width: 1024px)
   .menu-icon-toggle
@@ -2035,6 +2054,14 @@ $bermuda: #77D7B9
     line-height: 1.5
 
 @media (max-width: 992px)
+
+  .page-portfolio_list-portfolio_item
+    .page-portfolio_list-portfolio_item_img
+      order: 1
+      margin-bottom: 30px
+
+    .page-portfolio_list-portfolio_item_content
+      order: 2
 
   .home-about
     &_first
@@ -2108,7 +2135,90 @@ $bermuda: #77D7B9
 
     #menu-footer
       column-count: 2
+  .page-partners
+    .hero
+      margin-bottom: 40px
 
+    &_partners-list
+      margin-bottom: 20px
+
+  .page-service
+    .hero
+      margin-bottom: 40px
+
+    &_service-list
+      margin-bottom: 40px
+
+    &_second-row
+      display: none !important
+
+    &_first-row
+      padding-right: 0
+
+  .page-advertisers
+    .hero
+      margin-bottom: 40px
+
+    &_content_second
+      display: none !important
+  .page-portfolio
+    &_list-portfolio_item
+      margin-bottom: 60px
+
+      &_content
+        &_title
+          font-size: 1.3625rem
+
+        &_text
+          font-size: 14px
+
+  .page-news
+    .hero
+      margin-bottom: 40px
+
+    &_category-block
+      margin: 0 !important
+
+      &_item
+        display: inline-block
+
+        &_link
+          margin-left: 0 !important
+          margin-right: 30px
+          margin-bottom: 30px
+
+    .news-pagination
+      margin: 10px 0 40px
+
+  .page-archive
+    .hero
+      margin-bottom: 40px
+
+    &_list-years
+      margin: 0 0 10px 0
+
+      &_item
+        display: inline-block
+
+        &_link
+          margin-left: 0
+          margin-bottom: 20px
+          margin-right: 20px
+
+    &_sub-title
+      margin-bottom: 40px
+  .page-contacts_first-row
+    flex-basis: inherit
+    width: 100%
+    max-width: 100%
+    padding: 30px 36px
+    box-shadow: none
+    z-index: -2
+
+    height: auto
+  .page-contacts_second-row
+    position: relative
+    flex-basis: inherit
 @media (max-width: 768px)
   .home-slider
     padding: 40px 0
@@ -2142,6 +2252,8 @@ $bermuda: #77D7B9
   .home-portfolio_carousel
     width: 100%
     margin: 0 auto
+  .hero .hero_title
+    font-size: 1.275rem
 
   footer
     .second-row
@@ -2155,6 +2267,21 @@ $bermuda: #77D7B9
 
     .second-row_footer_top_second
       justify-content: start !important
+  .page-about
+    &_awards_first-block_awards-images
+      margin-top: 40px
+  .page-news_category-block_item_link
+    margin-right: 7px
+    margin-bottom: 15px
+
+  .page-archive_list-items_item
+    display: block !important
+    &_img-block
+      margin-right: 0
+      margin-bottom: 20px
+
+  .page-archive
+    margin-bottom: 40px
 
 @media (max-width: 600px)
   .header
@@ -2176,11 +2303,54 @@ $bermuda: #77D7B9
 
   .partners-section_sub-text
     padding: 0 15px
+  .page-about
+    &_last,
+    &_description
+      margin-bottom: 40px
+
+    &_content_second
+      display: none
+
+    &_additional_item
+      margin-bottom: 20px
+  .page-portfolio
+    &_list-portfolio_item_content_links
+      flex-direction: column
+
+      .link-main
+        text-align: center
+        margin-bottom: 10px
+
+        &.alt
+          margin-left: 0
 
 @media (max-width: 576px)
   footer
     .second-row,
     .first-row
       padding: 0 15px
+  .page-about_additional
+    padding: 0 15px
+  .page-about
+    &_awards_list-items,
+    .row
+      margin: 0 !important
 
+    &_list-team
+      margin-right: 0 !important
+      margin-left: 0 !important
 
+    &_additional_item
+      padding: 0
+  .page-news_list-row .post-item
+    padding: 0 !important
+
+  .page-archive .row,
+  .page-partners .row,
+  .page-news .row,
+  .page-portfolio .row
+    margin-left: 0 !important
+    margin-right: 0 !important
+  .page-advertisers .row,
+  .page-service .row
+    margin: 0 !important

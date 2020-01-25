@@ -885,6 +885,9 @@
 .page-service_table-prices thead tr {
   background-color: transparent !important; }
 
+.page-service_first-row {
+  padding-left: 0; }
+
 .page-service_second-row {
   padding-right: 0;
   -webkit-writing-mode: vertical-rl;
@@ -905,6 +908,9 @@
   background-image: url(../images/portfolio-bg.jpg);
   margin-bottom: 90px; }
 
+.page-portfolio_list-portfolio_item_content_links .alt {
+  margin-left: 30px; }
+
 .page-portfolio_list-portfolio {
   margin: 0;
   padding: 0; }
@@ -920,8 +926,6 @@
       .page-portfolio_list-portfolio_item_content_text {
         line-height: 26px;
         margin-bottom: 33px; }
-      .page-portfolio_list-portfolio_item_content_links {
-        margin-left: 30px; }
     .page-portfolio_list-portfolio_item_img_img-wrapper {
       position: relative; }
       .page-portfolio_list-portfolio_item_img_img-wrapper:before {
@@ -1536,7 +1540,7 @@ div.wpcf7-mail-sent-ok {
     -o-transition: opacity 0.3s;
     transition: opacity 0.3s; }
   .open .menu-icon-toggle::before, .open .menu-icon-toggle::after {
-    background-color: #6191d1; }
+    background-color: #000; }
   .open .menu-icon-toggle::before {
     top: -webkit-calc(50% - 1px);
     top: calc(50% - 1px);
@@ -1566,9 +1570,9 @@ div.wpcf7-mail-sent-ok {
     -webkit-transform: rotate(-45deg) translateY(-150%);
         -ms-transform: rotate(-45deg) translateY(-150%);
             transform: rotate(-45deg) translateY(-150%);
-    background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #6191d1), color-stop(50%, #000));
-    background: -o-linear-gradient(bottom, #6191d1 50%, #000 50%);
-    background: linear-gradient(to top, #6191d1 50%, #000 50%);
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #000), color-stop(50%, #000));
+    background: -o-linear-gradient(bottom, #000 50%, #000 50%);
+    background: linear-gradient(to top, #000 50%, #000 50%);
     background-size: 100% 200%;
     background-position: -100% 100%; }
     .open .menu-icon-toggle.top {
@@ -1589,9 +1593,9 @@ div.wpcf7-mail-sent-ok {
     -webkit-transform: rotate(-45deg) translateY(250%);
         -ms-transform: rotate(-45deg) translateY(250%);
             transform: rotate(-45deg) translateY(250%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #000), color-stop(50%, #6191d1));
-    background: -o-linear-gradient(top, #000 50%, #6191d1 50%);
-    background: linear-gradient(to bottom, #000 50%, #6191d1 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #000), color-stop(50%, #000));
+    background: -o-linear-gradient(top, #000 50%, #000 50%);
+    background: linear-gradient(to bottom, #000 50%, #000 50%);
     background-size: 100% 200%;
     background-position: 0 -100%; }
     .open .menu-icon-toggle.bottom {
@@ -1616,6 +1620,18 @@ div.wpcf7-mail-sent-ok {
   -o-transition: all .3s;
   transition: all .3s;
   opacity: 0; }
+  .mobile-menu .header-logo-mobile {
+    margin: 70px auto 26px;
+    display: table; }
+  .mobile-menu .menu-menu-1-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
   .open .mobile-menu {
     visibility: visible;
     opacity: 1; }
@@ -1627,7 +1643,8 @@ div.wpcf7-mail-sent-ok {
             transform: translateX(20px);
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
-    transition: all 0.3s; }
+    transition: all 0.3s;
+    list-style: none; }
     .mobile-menu li:nth-child(9) {
       -webkit-transition-delay: 0.1s;
            -o-transition-delay: 0.1s;
@@ -1749,9 +1766,9 @@ div.wpcf7-mail-sent-ok {
                   transition-delay: 1.5s; }
   .mobile-menu a {
     position: relative;
-    font-size: 24px;
+    font-size: 15px;
     text-decoration: none;
-    color: #6191d1; }
+    color: #000; }
     .mobile-menu a::before {
       content: '';
       display: block;
@@ -1760,7 +1777,7 @@ div.wpcf7-mail-sent-ok {
       position: absolute;
       left: -30px;
       top: 50%;
-      background-color: #6191d1;
+      background-color: #000;
       -webkit-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
               transform: translateY(-50%);
@@ -1803,7 +1820,12 @@ div.wpcf7-mail-sent-ok {
   footer #menu-footer {
     -webkit-column-count: 2;
        -moz-column-count: 2;
-            column-count: 2; } }
+            column-count: 2; }
+  .page-portfolio_list-portfolio_item_img_img-wrapper img {
+    width: 100%; }
+  .page-portfolio .link.link-main {
+    font-size: .875rem;
+    padding: 11px 15px; } }
 
 @media (max-width: 1024px) {
   .menu-icon-toggle {
@@ -1858,6 +1880,17 @@ div.wpcf7-mail-sent-ok {
     line-height: 1.5; } }
 
 @media (max-width: 992px) {
+  .page-portfolio_list-portfolio_item .page-portfolio_list-portfolio_item_img {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+    margin-bottom: 30px; }
+  .page-portfolio_list-portfolio_item .page-portfolio_list-portfolio_item_content {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
   .home-about_first {
     margin-bottom: 30px; }
   .home-about_second_list-facts {
@@ -1917,7 +1950,69 @@ div.wpcf7-mail-sent-ok {
   footer #menu-footer {
     -webkit-column-count: 2;
        -moz-column-count: 2;
-            column-count: 2; } }
+            column-count: 2; }
+  .page-partners .hero {
+    margin-bottom: 40px; }
+  .page-partners_partners-list {
+    margin-bottom: 20px; }
+  .page-service .hero {
+    margin-bottom: 40px; }
+  .page-service_service-list {
+    margin-bottom: 40px; }
+  .page-service_second-row {
+    display: none !important; }
+  .page-service_first-row {
+    padding-right: 0; }
+  .page-advertisers .hero {
+    margin-bottom: 40px; }
+  .page-advertisers_content_second {
+    display: none !important; }
+  .page-portfolio_list-portfolio_item {
+    margin-bottom: 60px; }
+    .page-portfolio_list-portfolio_item_content_title {
+      font-size: 1.3625rem; }
+    .page-portfolio_list-portfolio_item_content_text {
+      font-size: 14px; }
+  .page-news .hero {
+    margin-bottom: 40px; }
+  .page-news_category-block {
+    margin: 0 !important; }
+    .page-news_category-block_item {
+      display: inline-block; }
+      .page-news_category-block_item_link {
+        margin-left: 0 !important;
+        margin-right: 30px;
+        margin-bottom: 30px; }
+  .page-news .news-pagination {
+    margin: 10px 0 40px; }
+  .page-archive .hero {
+    margin-bottom: 40px; }
+  .page-archive_list-years {
+    margin: 0 0 10px 0; }
+    .page-archive_list-years_item {
+      display: inline-block; }
+      .page-archive_list-years_item_link {
+        margin-left: 0;
+        margin-bottom: 20px;
+        margin-right: 20px; }
+  .page-archive_sub-title {
+    margin-bottom: 40px; }
+  .page-contacts_first-row {
+    -webkit-flex-basis: inherit;
+        -ms-flex-preferred-size: inherit;
+            flex-basis: inherit;
+    width: 100%;
+    max-width: 100%;
+    padding: 30px 36px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    z-index: -2;
+    height: auto; }
+  .page-contacts_second-row {
+    position: relative;
+    -webkit-flex-basis: inherit;
+        -ms-flex-preferred-size: inherit;
+            flex-basis: inherit; } }
 
 @media (max-width: 768px) {
   .home-slider {
@@ -1943,6 +2038,8 @@ div.wpcf7-mail-sent-ok {
   .home-portfolio_carousel {
     width: 100%;
     margin: 0 auto; }
+  .hero .hero_title {
+    font-size: 1.275rem; }
   footer .second-row {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1957,7 +2054,19 @@ div.wpcf7-mail-sent-ok {
     -webkit-box-pack: start !important;
     -webkit-justify-content: start !important;
         -ms-flex-pack: start !important;
-            justify-content: start !important; } }
+            justify-content: start !important; }
+  .page-about_awards_first-block_awards-images {
+    margin-top: 40px; }
+  .page-news_category-block_item_link {
+    margin-right: 7px;
+    margin-bottom: 15px; }
+  .page-archive_list-items_item {
+    display: block !important; }
+    .page-archive_list-items_item_img-block {
+      margin-right: 0;
+      margin-bottom: 20px; }
+  .page-archive {
+    margin-bottom: 40px; } }
 
 @media (max-width: 600px) {
   .header .header-logo {
@@ -1972,9 +2081,47 @@ div.wpcf7-mail-sent-ok {
   .events-section .events-section_list_item_content_title {
     font-size: 1.475rem; }
   .partners-section_sub-text {
-    padding: 0 15px; } }
+    padding: 0 15px; }
+  .page-about_last, .page-about_description {
+    margin-bottom: 40px; }
+  .page-about_content_second {
+    display: none; }
+  .page-about_additional_item {
+    margin-bottom: 20px; }
+  .page-portfolio_list-portfolio_item_content_links {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .page-portfolio_list-portfolio_item_content_links .link-main {
+      text-align: center;
+      margin-bottom: 10px; }
+      .page-portfolio_list-portfolio_item_content_links .link-main.alt {
+        margin-left: 0; } }
 
 @media (max-width: 576px) {
   footer .second-row,
   footer .first-row {
-    padding: 0 15px; } }
+    padding: 0 15px; }
+  .page-about_additional {
+    padding: 0 15px; }
+  .page-about_awards_list-items,
+  .page-about .row {
+    margin: 0 !important; }
+  .page-about_list-team {
+    margin-right: 0 !important;
+    margin-left: 0 !important; }
+  .page-about_additional_item {
+    padding: 0; }
+  .page-news_list-row .post-item {
+    padding: 0 !important; }
+  .page-archive .row,
+  .page-partners .row,
+  .page-news .row,
+  .page-portfolio .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
+  .page-advertisers .row,
+  .page-service .row {
+    margin: 0 !important; } }
