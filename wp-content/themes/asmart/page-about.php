@@ -118,7 +118,7 @@ get_header(); ?>
 
                                 ?>
                                 <div class="page-about_awards_list-items_item">
-                                    <a class="page-about_awards_list-items_item_link">
+                                    <a href="<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "full")[0]; ?>" data-lightbox="example-set" class="page-about_awards_list-items_item_link">
                                         <img src="<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "awards-img")[0]; ?>"
                                              alt="Изображение"/>
                                     </a>

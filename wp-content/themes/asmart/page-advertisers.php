@@ -27,7 +27,7 @@ get_header(); ?>
                     <div class="page-advertisers_gallery ">
                         <?php foreach ($gallery as $galleryItem): ?>
                             <div class="page-advertisers_gallery_item">
-                                <a href="<?php echo $galleryItem['url']; ?>" class="page-advertisers_gallery_item_link">
+                                <a href="<?php echo $galleryItem['url']; ?>"   data-lightbox="example-set"  class="page-advertisers_gallery_item_link">
                                     <img src="<?php echo $galleryItem['sizes']['advertissers-img']; ?>"
                                          alt="Изображение"/>
                                 </a>

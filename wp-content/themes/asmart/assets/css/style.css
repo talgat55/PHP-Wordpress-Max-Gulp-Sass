@@ -2125,3 +2125,18 @@ div.wpcf7-mail-sent-ok {
   .page-advertisers .row,
   .page-service .row {
     margin: 0 !important; } }
+
+.lightboxOverlay {
+  background-color: #13273F !important;
+  opacity: 0.6 !important; }
+
+.lb-data .lb-close {
+  width: 50px !important;
+  height: 50px !important;
+  margin-right: -83px; }
+
+.lb-data .lb-details {
+  display: none; }
+
+.lb-dataContainer {
+  height: 50px; }

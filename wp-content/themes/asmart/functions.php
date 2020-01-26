@@ -41,7 +41,7 @@ function th_scripts()
 
     wp_enqueue_script('jquery.inputmask', get_theme_file_uri('/assets/js/jquery.inputmask.js'), array(), '', true);
 //
-//    wp_enqueue_script('lightbox.min.js', get_theme_file_uri('/assets/js/lightbox.min.js'), array(), '', true);
+    wp_enqueue_script('lightbox.min.js', get_theme_file_uri('/assets/js/lightbox.js'), array(), '', true);
 //
 //
     if (is_page_template('page-contacts.php')) {
@@ -60,16 +60,14 @@ function prefix_add_footer_styles()
 
 
     wp_enqueue_style('normalize', get_theme_file_uri('/assets/css/normalize.css'), array(), '');
-//    wp_enqueue_style('lightbox.min.css', get_theme_file_uri('/assets/css/lightbox.min.css'), array(), '');
+    wp_enqueue_style('lightbox.min.css', get_theme_file_uri('/assets/css/lightbox.min.css'), array(), '');
     wp_enqueue_style('slick', get_theme_file_uri('/assets/css/slick.css'), array(), '');
     wp_enqueue_style('slick-theme', get_theme_file_uri('/assets/css/slick-theme.css'), array(), '');
 
 //    wp_enqueue_style('montserrat', get_theme_file_uri('/assets/fonts/montserrat.css'), array(), '1');
 //    wp_enqueue_style('main-style2', get_theme_file_uri('/assets/css/critical.css'), array(), '1');
 
-}
-
-;
+};
 add_action('get_footer', 'prefix_add_footer_styles');
 
 
