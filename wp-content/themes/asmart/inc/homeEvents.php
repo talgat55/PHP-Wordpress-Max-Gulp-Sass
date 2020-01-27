@@ -38,7 +38,7 @@ $arg = [
                     if ($i == 0) {
                         $classItem = '__first';
                         $first = true;
-                        $classRow = 'col-lg-6 col-md-12';
+                        $classRow = '  col-md-12';
                     } else {
                         $classItem = '__second';
                         $first = false;
@@ -46,7 +46,7 @@ $arg = [
                     }
 
                     if($i == 1){
-                        echo '<div class="col-lg-6 col-md-12 padding-right">';
+                        echo '<div class="events-section_list_second col-md-12 padding-right">';
                     }
 
                     ?>
@@ -70,7 +70,7 @@ $arg = [
                             <?php endif; ?>
                             <div class="events-section_list_item_content_addition d-flex align-items-center justify-content-between">
                                 <div class="events-section_list_item_content_addition_date">
-                                    <?php echo get_the_date('d M Y', $post_id); ?>
+                                    <?php echo get_the_date('d F Y', $post_id); ?>
                                 </div>
                                 <a href="<?php echo get_the_permalink($post_id); ?> "
                                    class="events-section_list_item_content_addition_link">

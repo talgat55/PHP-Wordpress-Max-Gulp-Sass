@@ -172,7 +172,8 @@
   display: inline-block;
   -webkit-transition: all .3s;
   -o-transition: all .3s;
-  transition: all .3s; }
+  transition: all .3s;
+  letter-spacing: 0.03em; }
   .link:hover {
     text-decoration: none;
     color: var(--white-color);
@@ -259,11 +260,11 @@
 
 .home-about {
   margin-top: 79px; }
+  .home-about .sub-title {
+    margin-bottom: 19px; }
   .home-about_first {
     padding-left: 0 !important;
     margin-bottom: 90px; }
-    .home-about_first .sub-title {
-      margin-bottom: 19px; }
     .home-about_first__text {
       margin-bottom: 33px; }
   .home-about_second {
@@ -302,6 +303,18 @@
 .events-section {
   background: #F4F4F4;
   padding: 78px 0 91px; }
+  .events-section_list_item__first {
+    width: 670px;
+    -webkit-box-flex: inherit;
+    -webkit-flex: inherit;
+        -ms-flex: inherit;
+            flex: inherit; }
+  .events-section_list_second {
+    width: 470px;
+    -webkit-box-flex: inherit;
+    -webkit-flex: inherit;
+        -ms-flex: inherit;
+            flex: inherit; }
   .events-section .sub-title {
     margin-bottom: 35px; }
   .events-section .events-section_list {
@@ -315,7 +328,7 @@
         font-size: 1rem;
         line-height: 26px;
         color: var(--white-color);
-        padding: 8px 10px;
+        padding: 2px 19px;
         background-color: var(--theme-color-alt);
         border-radius: 0px 0px 5px 0px;
         position: absolute;
@@ -1422,7 +1435,7 @@
 
 footer {
   background: #E3E3E3;
-  padding: 55px 0 30px; }
+  padding: 30px 0 15px; }
   footer .first-row {
     max-width: 264px; }
   footer .copyright-privacy {
@@ -1825,7 +1838,11 @@ div.wpcf7-mail-sent-ok {
     width: 100%; }
   .page-portfolio .link.link-main {
     font-size: .875rem;
-    padding: 11px 15px; } }
+    padding: 11px 15px; }
+  .events-section_list_item__first {
+    width: 550px; }
+  .events-section_list_second {
+    width: 410px; } }
 
 @media (max-width: 1024px) {
   .menu-icon-toggle {
@@ -1880,6 +1897,11 @@ div.wpcf7-mail-sent-ok {
     line-height: 1.5; } }
 
 @media (max-width: 992px) {
+  .events-section_list_item__first {
+    width: 100%; }
+  .events-section_list_second {
+    width: 100%;
+    padding-left: 0; }
   .page-portfolio_list-portfolio_item .page-portfolio_list-portfolio_item_img {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
