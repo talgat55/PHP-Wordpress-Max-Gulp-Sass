@@ -13,7 +13,11 @@ get_header(); ?>
                     <?php endwhile; ?>
                 </div>
                 <div class="d-flex w-100">
-                    <div class="page-service_first-row col">
+                    <div
+                            data-aos="fade-right"
+                            data-aos-easing="ease-in-out"
+                            data-aos-once="true"
+                            class="page-service_first-row col">
                         <h2 class="page-service_sub-title">
                             Прайс-лист
                         </h2>
@@ -35,7 +39,11 @@ get_header(); ?>
                             </tbody>
                         </table>
                     </div>
-                    <div class="page-service_second-row col  d-flex justify-content-center">ПРАЙС-<span>ЛИСТ</span></div>
+                    <div
+                            data-aos="fade-left"
+                            data-aos-easing="ease-in-out"
+                            data-aos-once="true"
+                            class="page-service_second-row col  d-flex justify-content-center">ПРАЙС-<span>ЛИСТ</span></div>
                 </div>
                 <?php get_template_part('inc/feedback'); ?>
             </div>

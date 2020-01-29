@@ -17,14 +17,21 @@ get_header(); ?>
                 </div>
                 <div class="page-about_devider"></div>
                 <div class="page-about_description d-flex w-100">
-                    <div class="page-about_content_first col">
+                    <div data-aos="fade-right"
+                         data-aos-easing="ease-in-out"
+                         data-aos-once="true"
+                            class="page-about_content_first col">
                         <div class="page-about_text">
                             <?php while (have_posts()) : the_post(); ?>
                                 <?php the_content(); ?>
                             <?php endwhile; ?>
                         </div>
                     </div>
-                    <div class="page-about_content_second col">
+                    <div
+                            data-aos="fade-left"
+                            data-aos-easing="ease-in-out"
+                            data-aos-once="true"
+                            class="page-about_content_second col">
                         ИЗДАЕТСЯ С <span>1998</span>
                     </div>
                 </div>
@@ -82,6 +89,9 @@ get_header(); ?>
                 </div>
             </div>
             <div class="row">
+                <h2 class="page-about_title_awards">
+                    Награды
+                </h2>
                 <div class="page-about_awards w-100">
                     <div class="page-about_awards_first-block">
                         <div class="d-md-flex">

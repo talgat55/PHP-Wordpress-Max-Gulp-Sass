@@ -34,6 +34,8 @@ jQuery(document).ready(function () {
     //
     jQuery('.page-news_list-row .post-item').matchHeight();
 
+        //  init   animation blocks library
+        AOS.init();
     // end redy function
 });
 
@@ -168,52 +170,57 @@ function certsCarousel() {
 
 function map() {
     "use strict";
+    if (jQuery('#map').length) {
+        ymaps.ready(function () {
+            var myMap = new ymaps.Map('map', {
+                    center: [54.986568, 73.378812],
+                    zoom: 15,
+                    controls: [ ]
+                }, {
+                    // searchControlProvider: 'yandex#search'
+                }),
 
-    var $map = jQuery('#map');
+                // Создаём макет содержимого.
+                /*  MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                      '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+                  ),*/
+
+                myPlacemark = new ymaps.Placemark([54.986568, 73.378812], {
+                    id: '1'
+                }, {
+
+                    // Опции.
+                    // Необходимо указать данный тип макета.
+                    iconLayout: 'default#image',
+                    // Своё изображение иконки метки.
+
+                    iconImageHref: 'http://maximum.lightxdesign.ru/wp-content/themes/asmart/assets/images/marker.svg',
+                    // Размеры метки.
+                    iconImageSize: [40, 40],
+                    // Смещение левого верхнего угла иконки относительно
+                    // её "ножки" (точки привязки).
+                    iconImageOffset: [-20, -40]
+                });
 
 
-    if ($map.length) {
-        google.maps.event.addDomListener(window, 'load', init);
+            myMap.geoObjects
 
-        function init() {
-            // Basic options for a simple Google Map
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-            var mapOptions = {
-                // How zoomed in you want the map to start at (always required)
-                zoom: 15,
-                controls: [],
-                // The latitude and longitude to center the map (always required)
-                center: new google.maps.LatLng(54.986611, 73.378946), // New York
+                .add(myPlacemark);
 
-                // How you would like to style the map.
-                // This is where you would paste any style found on Snazzy Maps.
-                styles: []
-            };
+            myMap.behaviors.disable('scrollZoom');
+            myMap.behaviors.disable('drag');
+            myMap.behaviors.disable('multiTouch');
 
-            // Get the HTML DOM element that will contain your map
-            // We are using a div with id="map" seen below in the <body>
-            var mapElement = document.getElementById('map');
-            var image = {
-                url: 'http://localhost:6080/wp-content/themes/asmart/assets/images/marker.svg',
-                size: new google.maps.Size(40, 40),
-                // The origin for this image is (0, 0).
-                origin: new google.maps.Point(0, 0),
-                // The anchor for this image is the base of the flagpole at (0, 32).
-                anchor: new google.maps.Point(0, 40)
-            };
-            // Create the Google Map using our element and options defined above
-            var map = new google.maps.Map(mapElement, mapOptions);
-
-            // Let's also add a marker while we're at it
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(54.986611, 73.378946),
-                map: map,
-                icon: image,
-                title: 'Офис'
+            myMap.controls.add('zoomControl', {
+                float: 'none',
+                position: {
+                    right: 40,
+                    top: 40
+                }
             });
-        }
 
 
+        });
     }
 }
 
@@ -261,7 +268,7 @@ function sliderHomePage() {
             slidesToScroll: 1,
             arrows: false,
             dots: true,
-            // autoplay: true,
+            autoplay: true,
         });
 
         jQuery('.home-slider_slider .slick-dots').wrap("<div class='container  wrap-dots'></div>");
@@ -539,6 +546,7 @@ function closeModal() {
 
 function successModal() {
     "use strict";
+    jQuery('.modal-main').removeClass('active');
     jQuery('.success-modal-main, .overlay-layer').addClass('active');
     setTimeout(function () {
         jQuery('.success-modal-main, .overlay-layer').removeClass('active');
@@ -551,14 +559,10 @@ function successModal() {
 
 function OpenModal() {
     "use strict";
-
-    jQuery(".page-portfolio_list-portfolio_item .link.link-main , .page-partners .link.link-main.alt").click(function () {
-
+    jQuery(".page-portfolio_list-portfolio_item .link.link-main:not('.alt') , .page-partners .link.link-main.alt").click(function () {
         jQuery('.modal-main, .overlay-layer').addClass('active');
-
         return false;
     });
-
 }
 
 
@@ -569,7 +573,6 @@ function OpenModal() {
 function scrollFirstSlider() {
     "use strict";
     jQuery(".home-slider_arrow-down").click(function () {
-
         jQuery('html, body').animate({
             scrollTop: jQuery(".home-about").offset().top - 80
         }, 1000);
@@ -582,9 +585,7 @@ function scrollFirstSlider() {
 //---------------------------------------
 function eventCatAjax() {
     "use strict";
-
     jQuery('body').on('click', '.page-news_category-block_item_link', function () {
-
         var activeClass = 'page-news_category-block_item_link__active';
         jQuery('.page-news_category-block_item_link').removeClass(activeClass);
         jQuery(this).addClass(activeClass);
@@ -608,22 +609,18 @@ function eventCatAjax() {
         });
         return false;
     });
-
     //
     // Load more
     //
     jQuery('body').on('click', '.page-news .load-more', function () {
-
         var $page = jQuery(this).attr('data-page');
         var $term = jQuery('.page-news_category-block_item_link__active').attr('data-slug');
-
         var data = {
             action: 'be_ajax_events_load',
             page: $page,
             term: $term
         };
         jQuery(this).attr('data-page' , ++$page );
-
 
         jQuery.post(myajax.url, data, function (res) {
             if (res.success) {
@@ -647,14 +644,13 @@ function eventCatAjax() {
         });
         return false;
     });
-
-
-
-
 }
 
 document.addEventListener('wpcf7mailsent', function (event) {
     if (event.detail.contactFormId == "51") {
+        successModal();
+    }
+     if (event.detail.contactFormId == "168") {
         successModal();
     }
 }, false);

@@ -11,7 +11,7 @@ $arg = [
     'posts_per_page' => 3,
     'post_type' => 'post',
     'orderby' => 'date',
-    'order' => 'ASC',
+    'order' => 'DESC',
     'status' => 'publish'
 ];
 
@@ -45,44 +45,49 @@ $arg = [
                         $classRow = 'col-lg-12 col-md-12 ';
                     }
 
-                    if($i == 1){
+                    if ($i == 1) {
                         echo '<div class="events-section_list_second col-md-12 padding-right">';
                     }
 
                     ?>
                     <div class="events-section_list_item events-section_list_item<? echo $classItem; ?>  <?php echo $classRow; ?> "
+                         data-aos="flip-left"
+                         data-aos-offset="250"
+                         data-aos-delay="150"
+                         data-aos-easing="ease-in-out"
+                         data-aos-once="true"
                     >
-                        <div class="events-section_list_item events-section_list_item__wrap"
+                        <a href="<?php echo get_the_permalink($post_id); ?>" class="events-section_list_item events-section_list_item__wrap"
                              style="background: url(<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "full")[0]; ?>)"
                         >
                             <div class="events-section_list_item_category">
-                                <?php echo  $category[0]->name ;?>
+                                <?php echo $category[0]->name; ?>
                             </div>
-                        <div class="events-section_list_item_content">
-                            <a href="<?php echo get_the_permalink($post_id); ?>" class="events-section_list_item_content_title">
+                            <div class="events-section_list_item_content">
+                                <div class="events-section_list_item_content_title">
+                                    <? echo get_the_title($post_id) ?>
+                                </div>
+                                <?php if ($first) : ?>
+                                    <div class="events-section_list_item_content_text">
 
-                                <? echo get_the_title($post_id) ?>
-                            </a>
-                            <?php if ($first) : ?>
-                                <div class="events-section_list_item_content_text">
-                                    <? echo $anons; ?>
+                                        <?php echo mb_strimwidth($anons, 0, 125, "..."); ?>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="events-section_list_item_content_addition d-flex align-items-center justify-content-between">
+                                    <div class="events-section_list_item_content_addition_date">
+                                        <?php echo get_the_date('d F Y', $post_id); ?>
+                                    </div>
+                                    <div
+                                            class="events-section_list_item_content_addition_link">
+                                        Подробнее
+                                    </div>
                                 </div>
-                            <?php endif; ?>
-                            <div class="events-section_list_item_content_addition d-flex align-items-center justify-content-between">
-                                <div class="events-section_list_item_content_addition_date">
-                                    <?php echo get_the_date('d F Y', $post_id); ?>
-                                </div>
-                                <a href="<?php echo get_the_permalink($post_id); ?> "
-                                   class="events-section_list_item_content_addition_link">
-                                    Подробнее
-                                </a>
                             </div>
-                        </div>
-                    </div>
+                        </a>
                     </div>
                     <?php
 
-                    if($i == 2){
+                    if ($i == 2) {
                         echo '</div>';
                     }
 

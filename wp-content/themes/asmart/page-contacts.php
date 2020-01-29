@@ -71,7 +71,7 @@ get_header(); ?>
                             </a>
                         </li>
                         <li class="page-contacts_first-row_soc-links_item">
-                            <a href="#" target="_blank" class="footer_top_list-soc-links_item_link">
+                            <a href="https://www.instagram.com/maximum.omsk" target="_blank" class="footer_top_list-soc-links_item_link">
                                 <svg width="26" height="25" viewBox="0 0 26 25" fill="none"  >
                                     <g clip-path="url(#clip0)">
                                         <path d="M15.3663 12.5C15.3663 13.8214 14.2951 14.8926 12.9737 14.8926C11.6523 14.8926 10.5811 13.8214 10.5811 12.5C10.5811 11.1786 11.6523 10.1074 12.9737 10.1074C14.2951 10.1074 15.3663 11.1786 15.3663 12.5Z" fill="black"/>

@@ -11,5 +11,15 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
+<IfModule mod_rewrite.c>
+   Redirect 301 /catalog/ /
+   Redirect 301 /catalog/index.php?option=com_content&task=view&id=80&Itemid=7 /about/
+   Redirect 301 /catalog/index.php?option=com_content&task=view&id=491&Itemid=18 /news/
+   Redirect 301 /catalog/index.php?option=com_contact&task=view&contact_id=1&Itemid=3 /kontakty/
+   Redirect 301 /catalog/index.php?option=com_content&task=view&id=84&Itemid=11 /partner/
+   Redirect 301 /catalog/index.php?option=com_content&task=view&id=87&Itemid=13 /archive/
+ #  арт максимум   Redirect 301 /catalog/index.php?option=com_content&task=view&id=285&Itemid=17
+ #  рейтинг статей   Redirect 301 /catalog/index.php?option=com_content&task=category&sectionid=1&id=1&Itemid=2
 
+</IfModule>
 # END WordPress

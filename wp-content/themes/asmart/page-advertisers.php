@@ -9,14 +9,22 @@ get_header(); ?>
             <div class="row">
 
                 <div class="page-advertisers_description d-flex w-100">
-                    <div class="page-advertisers_content_first col">
+                    <div
+                            data-aos="fade-right"
+                            data-aos-easing="ease-in-out"
+                            data-aos-once="true"
+                            class="page-advertisers_content_first col">
                         <div class="page-advertisers_content_first_text">
                             <?php while (have_posts()) : the_post(); ?>
                                 <?php the_content(); ?>
                             <?php endwhile; ?>
                         </div>
                     </div>
-                    <div class="page-advertisers_content_second col">
+                    <div
+                            data-aos="fade-left"
+                            data-aos-easing="ease-in-out"
+                            data-aos-once="true"
+                            class="page-advertisers_content_second col">
                         ТЕХНИЧЕСКИЕ <span>ТРЕБОВАНИЯ</span>
                     </div>
                 </div>
