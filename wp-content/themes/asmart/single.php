@@ -51,7 +51,7 @@ $photo = get_field('foto_dlya_skachivaniya', get_the_ID());
                         </div>
                         <?php
 
-                        if (!empty($date) && $date <= date('d.m.Y')) : ?>
+                        if (!empty($date) && strtotime($date) >= strtotime(date('d.m.Y'))) : ?>
                             <a target="_blank" href="<?php echo $photo; ?>"
                                class="single-page-news_content_link-download d-flex align-items-center">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
