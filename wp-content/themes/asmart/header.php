@@ -23,20 +23,20 @@
         var myajax = {"url":"<?=admin_url('admin-ajax.php'); ?>"};
         /* ]]> */
     </script>
-    <!--    <script type="application/ld+json">-->
-    <!--        {-->
-    <!--            "@context": "http://schema.org",-->
-    <!--            "@type": "Organization",-->
-    <!--            "address": {-->
-    <!--                "@type": "PostalAddress",-->
-    <!--                "addressRegion": "г. Омск",-->
-    <!--                "streetAddress": "ул. Почтовая, д. 33, каб. 9"-->
-    <!--            },-->
-    <!--            "description": "Дизель Групп доставляет дизельное топливо по Омску и Омской области, напрямую от Газпрома и ВПК-ОЙЛ",-->
-    <!--            "name": "Дизель Групп - дизельное топливо с доставкой по омску и области",-->
-    <!--            "telephone": "8 91314-82-031"-->
-    <!--        }-->
-    <!--    </script>-->
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressRegion": "г. Омск",
+                    "streetAddress": "ул. Краснофлотская 24, каб. 504"
+                },
+                "description": "Издание с высокой деловой репутацией. г. Омск, ул. Гагарина, 8/2, Выпуск каталога - октябрь 2019 г. - приурочен к XVI Форуму межрегионального сотрудничества России и Казахстана, который состоится в Омске 7 ноября этого года.",
+                "name": "Деловой журнал МАКСИМУМ",
+                "telephone": "8 (381) 220-06-67"
+            }
+        </script>
 </head>
 
 <body <?php body_class(); ?>>

@@ -33,9 +33,10 @@ get_header(); ?>
                         } else {
                             $redySecondLink = $linkToPage ? $linkToPage : '';
                         }
+                        $newSlug = sanitize_title(get_the_title($post_id));
 
                         ?>
-                        <li class="page-portfolio_list-portfolio_item  row  align-items-center">
+                        <li id="<?php echo $newSlug ?>" class="page-portfolio_list-portfolio_item  row  align-items-center">
                             <div class="page-portfolio_list-portfolio_item_content  col-lg-6  col-md-12 col-sm-12">
                                 <h3 class="page-portfolio_list-portfolio_item_content_title">
                                     <?php echo get_the_title($post_id); ?>

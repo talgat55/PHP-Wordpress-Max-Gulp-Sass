@@ -12,12 +12,19 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 <IfModule mod_rewrite.c>
-   Redirect 301 /catalog/ /
+
+
    Redirect 301 /catalog/index.php?option=com_content&task=view&id=80&Itemid=7 /about/
+   Redirect 301 /?option=com_content&task=view&id=80&Itemid=7 /about/
    Redirect 301 /catalog/index.php?option=com_content&task=view&id=491&Itemid=18 /news/
    Redirect 301 /catalog/index.php?option=com_contact&task=view&contact_id=1&Itemid=3 /kontakty/
    Redirect 301 /catalog/index.php?option=com_content&task=view&id=84&Itemid=11 /partner/
    Redirect 301 /catalog/index.php?option=com_content&task=view&id=87&Itemid=13 /archive/
+   Redirect 301 /catalog/index.php?option=com_content&task=view&id=584&Itemid=1 /nashi-proekti/?id=omsk-100-luchshih-kompanij
+   Redirect 301 /catalog/index.php?option=com_content&task=view&id=60&Itemid=2 /nashi-proekti/
+   Redirect 301 /catalog/index.php?option=com_content&task=view&id=246&Itemid=2 /nashi-proekti/
+   Redirect 301 /catalog/index.php?option=com_content&task=view&id=494&Itemid=18 /nashi-proekti/
+   Redirect 301 /catalog/ /
  #  арт максимум   Redirect 301 /catalog/index.php?option=com_content&task=view&id=285&Itemid=17
  #  рейтинг статей   Redirect 301 /catalog/index.php?option=com_content&task=category&sectionid=1&id=1&Itemid=2
 

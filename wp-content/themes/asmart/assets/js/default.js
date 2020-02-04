@@ -23,7 +23,6 @@ jQuery(document).ready(function () {
     eventCatAjax();
 
 
-
     $('.menu-icon-toggle').on('click', function(e) {
         $('body').toggleClass('open');
 
@@ -70,10 +69,9 @@ function backToTop() {
     });
 
 }
-
-//
+//----------------------------------
 //  Modal
-//
+//---------------------------------------
 function modal() {
     "use strict";
     var classShow = 'show';

@@ -479,4 +479,17 @@ add_action('wp_ajax_be_ajax_events_load', 'be_ajax_events_load');
 add_action('wp_ajax_nopriv_be_ajax_events_load', 'be_ajax_events_load');
 
 
+
+/**
+ *  Redirect for Portfolio
+ */
+
+if(!empty($_REQUEST['id'])){
+    $id = $_REQUEST['id'];
+    $output = '';
+    if($id == 'omsk-100-luchshih-kompanij'){
+        $output = '/nashi-proekti/#omsk-100-luchshih-kompanij';
+    }
+    wp_redirect($output , '301');
+}
  

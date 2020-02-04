@@ -403,7 +403,10 @@
         .events-section .events-section_list_item__second:first-child {
           margin-bottom: 30px; }
         .events-section .events-section_list_item__second .events-section_list_item_content_title {
-          margin-bottom: 14px; }
+          margin-bottom: 14px;
+          line-height: 1.5;
+          height: 104px;
+          overflow: hidden; }
       .events-section .events-section_list_item_content_addition_link {
         color: var(--white-color);
         text-decoration: none;
