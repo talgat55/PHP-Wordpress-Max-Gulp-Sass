@@ -31,9 +31,11 @@ $main_font: 'Montserrat', sans-serif
 
 .post-item
   margin-bottom: 30px
+
   a
     display: inline-block
     text-decoration: none
+
     &:hover
       text-decoration: none
 
@@ -226,11 +228,12 @@ $main_font: 'Montserrat', sans-serif
 
     &:hover
       background: var(--black-color)
-      border-color: var(--black-color)!important
+      border-color: var(--black-color) !important
       color: var(--white-color)
+
   &.link_archive
-    margin-left: 0!important
-    margin-top: 30px!important
+    margin-left: 0 !important
+    margin-top: 30px !important
 
 .sub-title
   font-weight: 600
@@ -370,12 +373,15 @@ $main_font: 'Montserrat', sans-serif
 .events-section
   background: #F4F4F4
   padding: 78px 0 91px
+
   &_list_item__first
     width: 670px
     flex: inherit
+
   &_list_second
     width: 470px
     flex: inherit
+
   .sub-title
     margin-bottom: 35px
 
@@ -428,7 +434,7 @@ $main_font: 'Montserrat', sans-serif
 
         &_title
           font-weight: 600
-          font-size:   1.5rem
+          font-size: 1.5rem
           line-height: 40px
           margin-bottom: 14px
           margin-top: 0
@@ -578,6 +584,7 @@ $main_font: 'Montserrat', sans-serif
         border-radius: 30px
         position: absolute
         bottom: 40px
+        min-width: 175px
         left: 50%
         transform: translateX(-50%)
         transition: all .3s
@@ -779,7 +786,7 @@ $main_font: 'Montserrat', sans-serif
     background: #fff
     width: 37%
     max-width: 37%
-    box-shadow: 13px  13px 15px rgba(0, 0, 0, 0.15)
+    box-shadow: 13px 13px 15px rgba(0, 0, 0, 0.15)
 
     .page-title-main
       margin-bottom: 37px
@@ -972,6 +979,7 @@ $main_font: 'Montserrat', sans-serif
       float: right
       padding-bottom: 40px
       padding-left: 40px
+
       img
         max-width: 100%
 
@@ -1001,6 +1009,7 @@ $main_font: 'Montserrat', sans-serif
   &_gallery
     margin: 0
     padding: 0
+
     li
       list-style: none
 
@@ -1097,7 +1106,11 @@ $main_font: 'Montserrat', sans-serif
 //
 // Portfolio
 //
+
 .page-portfolio
+  &_list-portfolio_item_content_links.row
+    margin: 0 !important
+
   .hero
     background-image: url(../images/portfolio-bg.jpg)
     margin-bottom: 90px
@@ -1178,6 +1191,7 @@ $main_font: 'Montserrat', sans-serif
     height: 1px
     background: rgba(0, 0, 0, 0.1)
     margin-bottom: 32px
+
   &_title_awards
     margin: 30px 0 10px
     font-weight: 600
@@ -1573,7 +1587,7 @@ $main_font: 'Montserrat', sans-serif
   left: 0
   width: 100%
   height: 100%
-  z-index: 99
+  z-index: 9999999
   transition: all .3s
   visibility: hidden
   opacity: 0
@@ -1978,6 +1992,14 @@ $bermuda: #77D7B9
 .error-page
   min-height: 700px
 
+@media (min-width: 1200px) and (max-width: 1313px)
+  .home-portfolio .slick-prev
+    left: 0
+    z-index: 99
+  .home-portfolio .slick-next
+    right: 0
+    z-index: 99
+
 @media (max-width: 1200px)
   .header
     .menu-menu-1-container #menu-main .menu-item
@@ -2039,9 +2061,15 @@ $bermuda: #77D7B9
       img
         width: 100%
 
+    &_list-portfolio_item_content_links .alt
+      margin-left: 0
+      margin-right: 30px
+      margin-top: 30px !important
+
     .link.link-main
       font-size: .875rem
       padding: 11px 15px
+
 
   .events-section
     &_list_item__first
@@ -2051,8 +2079,10 @@ $bermuda: #77D7B9
       width: 410px
 
 
-
 @media (max-width: 1024px)
+  .header
+    z-index: 9999
+
   .menu-icon-toggle
     display: block
   .header
@@ -2114,7 +2144,11 @@ $bermuda: #77D7B9
     font-size: 1.575rem
     line-height: 1.5
 
-@media (max-width: 992px)
+@media (max-width: 993px)
+  footer .second-row,
+  footer .first-row
+    min-width: 100%
+
   .events-section
     &_list_item__first
       width: 100%
@@ -2239,11 +2273,14 @@ $bermuda: #77D7B9
 
         &_text
           font-size: 14px
+
     &_list-portfolio_item_content_links
-      display: block!important
+      display: block !important
+      .link.link-main
+        margin-right: 30px
       .link_archive
-        margin-top: 0!important
-        margin-left: 30px!important
+        margin-top: 0 !important
+        margin-left: 0 !important
 
   .page-news
     .hero
@@ -2313,7 +2350,12 @@ $bermuda: #77D7B9
     padding-top: 70px
   .error-page
     min-height: 500px
+
 @media (max-width: 768px)
+  .single-page-news_content .page-title-main
+    font-size: 20px
+    line-height: 1.5
+
   .home-slider
     padding: 40px 0
 
@@ -2370,6 +2412,7 @@ $bermuda: #77D7B9
 
   .page-archive_list-items_item
     display: block !important
+
     &_img-block
       margin-right: 0
       margin-bottom: 20px
@@ -2379,10 +2422,10 @@ $bermuda: #77D7B9
 
   .success-modal-main
     .success-modal
-      padding: 100px 20px!important
+      padding: 100px 20px !important
 
     .success-modal_title
-      margin: 0!important
+      margin: 0 !important
 
   .modal-main .feedback-section
     .close-modal-custom
@@ -2414,7 +2457,11 @@ $bermuda: #77D7B9
     padding-left: 0
   .page-portfolio_list-portfolio_item_content_links
     .link-main
-      margin: 30px 30px 0 0!important
+      margin: 30px 30px 0 0 !important
+  .lb-data .lb-close
+    margin-right: -1px !important
+    margin-top: -11px !important
+
 
 @media (max-width: 600px)
   .error-page
@@ -2460,9 +2507,10 @@ $bermuda: #77D7B9
           margin-left: 0
   .single-page-news
     .breadcrumbs
-      display: block!important
+      display: block !important
+
       li
-        display: inline-block!important
+        display: inline-block !important
 
 @media (max-width: 576px)
   footer
@@ -2485,6 +2533,7 @@ $bermuda: #77D7B9
   .page-news_list-row .post-item
     padding: 0 !important
 
+  .feedback-section .row,
   .single-page-news .row,
   .page-archive .row,
   .page-partners .row,
@@ -2496,19 +2545,46 @@ $bermuda: #77D7B9
   .page-service .row
     margin: 0 !important
 
+  .modal-main .feedback-section
+    width: 100%
+    padding: 53px 15px
+
+@media (max-width: 340px)
+  footer
+    .second-row_footer_top_first
+      margin-bottom: 20px
+
+    #menu-footer
+      column-count: 1 !important
+
+    .footer_top
+      flex-direction: column
+
+  .header .header-logo svg
+    margin: 23px 0
+    width: 200px
+
+  .home-about_second_list-facts__item__text
+    font-size: 18px
+
+  .home-about_second_list-facts__item__number
+    font-size: 2.3rem
+
 
 .lightboxOverlay
-  background-color: #13273F!important
-  opacity: .6!important
+  background-color: #13273F !important
+  opacity: .6 !important
 
 .lb-data .lb-close
-  width: 50px!important
-  height: 50px!important
+  width: 50px !important
+  height: 50px !important
   margin-right: -83px
 
 .lb-data .lb-details
   display: none
+
 .lb-dataContainer
   height: 50px
+
 span.wpcf7-not-valid-tip
   margin-bottom: 20px

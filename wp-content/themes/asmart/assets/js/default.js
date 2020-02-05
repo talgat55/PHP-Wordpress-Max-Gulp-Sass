@@ -631,7 +631,14 @@ function eventCatAjax() {
                         jQuery('.page-news_list-row')
                             .append(res.data.data);
                     }else{
-                        jQuery('.page-news_list-row').after('<p class="no-items-text">Записей больше нет</p>');
+
+                            jQuery('.page-news_list-row').after('<p class="no-items-text">Записей больше нет</p>');
+                            setTimeout(function (){
+
+                                jQuery('.no-items-text').remove();
+
+                            },2000);
+
                     }
                 } else {
                     console.log(res);
