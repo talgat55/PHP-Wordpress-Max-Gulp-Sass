@@ -34,15 +34,22 @@ $arg = [
                     $anons = get_field('anons', $post_id);
                     $category = get_the_category($post_id);
                     $classItem = $i == 0 ? '__first' : '__second';
+                    $firstImg = get_field('photo_first', $post_id);
+                    $secondImg = get_field('photo_second', $post_id);
+
+                    $redyFirstImg =  !empty($firstImg['sizes']['news-home-first']) ? $firstImg['sizes']['news-home-first']  : '';
+                    $redySecondImg =  !empty($secondImg['sizes']['news-home-second']) ? $secondImg['sizes']['news-home-second']  : '';
 
                     if ($i == 0) {
                         $classItem = '__first';
                         $first = true;
                         $classRow = '  col-md-12';
+                        $redyBgImg =  !empty($redyFirstImg) ? $redyFirstImg :  wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "full")[0];
                     } else {
                         $classItem = '__second';
                         $first = false;
                         $classRow = 'col-lg-12 col-md-12 ';
+                        $redyBgImg =  !empty($redySecondImg) ? $redySecondImg :  wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "full")[0];
                     }
 
                     if ($i == 1) {
@@ -57,8 +64,9 @@ $arg = [
                          data-aos-easing="ease-in-out"
                          data-aos-once="true"
                     >
+
                         <a href="<?php echo get_the_permalink($post_id); ?>" class="events-section_list_item events-section_list_item__wrap"
-                             style="background: url(<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "full")[0]; ?>)"
+                             style="background: url(<?= $redyBgImg; ?>)"
                         >
                             <div class="events-section_list_item_category">
                                 <?php echo $category[0]->name; ?>

@@ -7,16 +7,19 @@
  */
 
 $category = get_the_category(get_the_ID());
+$secondImg = get_field('photo_second', get_the_ID());
 
+$redySecondImg =  !empty($secondImg['sizes']['news-home-second']) ? $secondImg['sizes']['news-home-second']  : '';
+$redyBgImg =  !empty($redySecondImg) ? $redySecondImg :  wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), "full")[0];
 ?>
 <div class="post-item col-lg-3 col-md-6 col-sm-12">
-    <a href="<?php echo get_the_permalink($post_id); ?>">
+    <a href="<?php echo get_the_permalink(get_the_ID()); ?>">
     <div class="post-item_img-block">
         <div class="post-item_img-block_category">
             <?php echo $category[0]->name; ?>
         </div>
-        <div href="<?php echo get_the_permalink($post_id); ?>" class="post-item_img-block_img"
-             style="background-image: url(<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), "full")[0]; ?>
+        <div href="<?php echo get_the_permalink(get_the_ID()); ?>" class="post-item_img-block_img"
+             style="background-image: url(<?php echo $redyBgImg; ?>
                      )">
         </div>
         <div class="post-item_img-block_addition_date">

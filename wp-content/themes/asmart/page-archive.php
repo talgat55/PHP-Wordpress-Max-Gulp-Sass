@@ -6,7 +6,11 @@ get_header(); ?>
     <div id="primary" class="  page-main  page-archive">
         <?php get_template_part('inc/hero'); ?>
         <div class="container">
-            <div class="row">
+            <div class="row text-center">Данный раздел находится в разработке</div>
+            <?php
+
+            /*
+              <div class="row">
 
 
                 <ul class="page-archive_list-years d-lg-flex w-100  align-items-center w-100">
@@ -123,6 +127,9 @@ get_header(); ?>
                     </a>
                 </div>
             </div>
+             * */
+
+            ?>
         </div>
     </div>
 <?php get_footer();

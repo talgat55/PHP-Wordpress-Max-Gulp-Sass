@@ -46,7 +46,11 @@ get_header(); ?>
                                 </div>
                                 <div class="page-portfolio_list-portfolio_item_content_links  row">
                                     <a href="#" class="link link-main">
-                                        РАЗМЕСТИТЬСЯ В КАТАЛОГЕ
+                                        <?php  if($post_id == '41'): ?> 
+                                            Разместить в журнале
+                                        <?php else: ?>
+                                            РАЗМЕСТИТЬСЯ В КАТАЛОГЕ
+                                        <?php endif; ?>
                                     </a>
                                     <a href="<?php echo $redySecondLink; ?>" target="_blank" class="link link-main alt">
                                         ЧИТАТЬ ВЫПУСК

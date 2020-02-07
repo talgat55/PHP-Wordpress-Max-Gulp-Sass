@@ -21,6 +21,8 @@ add_image_size('awards-img', 279, 380, true);
 add_image_size('advertissers-img', 270, 334, true);
 add_image_size('portfolio-page-img', 570, 461, true);
 add_image_size('news-single-img', 570, 461, true);
+add_image_size('news-home-first', 665, 450, true);
+add_image_size('news-home-second', 455, 210, true);
 
 
 /**
