@@ -43,6 +43,7 @@
 
 # Ignore WP Core files (keeps wp-content)
 # ----------------------------------
+/wp-content/themes/asmart/vendor/
 !/wp-content/themes/
 wp-admin
 wp-includes

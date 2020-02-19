@@ -10,15 +10,11 @@
 
 if (is_front_page()) {
     $classRight = '
-                        data-aos="fade-up-left"  
+                        data-aos="fade-left"  
                          data-aos-easing="ease-in-out"
                          data-aos-once="true"
     ';
-    $classLeft = '
-                        data-aos="fade-up-right"  
-                         data-aos-easing="ease-in-out"
-                         data-aos-once="true"
-    ';
+    $classLeft = ' ';
 
 
 } else {

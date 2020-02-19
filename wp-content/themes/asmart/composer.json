@@ -1,0 +1,7 @@
+{
+    "require": {
+        "paquettg/php-html-parser": "^2.2",
+        "imangazaliev/didom": "^1.14",
+        "dimabdc/php-fast-simple-html-dom-parser": "^1.2"
+    }
+}

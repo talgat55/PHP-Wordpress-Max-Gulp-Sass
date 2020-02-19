@@ -17,13 +17,7 @@
         <div class="row  ">
             <div class="home-about_first col-lg-7 col-md-7 col-sm-12">
 
-                <p
-                        data-aos="fade-up-right"
-                        data-aos-offset="50"
-                        data-aos-delay="50"
-                        data-aos-once="true"
-                        data-aos-anchor-placement="top-center"
-                        class="home-about_first__text">
+                <p class="home-about_first__text">
                     Информационно - деловой журнал «Максимум» издается с 1998 г. и за эти годы зарекомендовал себя как
                     издание с высокой деловой репутацией. На наших страницах – статьи и фоторепортажи о деятельности и
                     развитии промышленных и строительных компаний, предприятий теплоэнергетики и дорожного хозяйства,
@@ -34,13 +28,7 @@
                     качество полиграфии оценили наши многочисленные партнеры и читатели.
 
                 </p>
-                <a
-                        data-aos="fade-up-right"
-                        data-aos-offset="50"
-                        data-aos-delay="50"
-                        data-aos-once="true"
-                        data-aos-anchor-placement="top-center"
-                        href="/about/" class="link link-main">
+                <a href="/about/" class="link link-main">
                     подробнее
                 </a>
             </div>
@@ -48,11 +36,10 @@
                 <ul class="home-about_second_list-facts">
                     <li
                             data-aos="fade-left"
-                            data-aos-offset="50"
                             data-aos-delay="50"
                             data-aos-once="true"
                             data-aos-anchor-placement="top-center"
-
+                            data-aos-anchor=".home-about_first__text"
                             class="home-about_second_list-facts__item  d-flex align-items-center justify-content-end">
                         <div class="home-about_second_list-facts__item__text">
                             номеров<br>
@@ -64,8 +51,8 @@
                     </li>
                     <li
                             data-aos="fade-left"
-                            data-aos-offset="50"
                             data-aos-delay="50"
+                            data-aos-anchor=".home-about_first__text"
                             data-aos-once="true"
                             data-aos-anchor-placement="top-center"
 
@@ -79,10 +66,9 @@
                         </div>
                     </li>
                     <li
-
                             data-aos="fade-left"
-                            data-aos-offset="50"
                             data-aos-delay="50"
+                            data-aos-anchor=".home-about_first__text"
                             data-aos-once="true"
                             data-aos-anchor-placement="top-center"
 

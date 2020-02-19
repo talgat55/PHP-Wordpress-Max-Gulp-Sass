@@ -218,6 +218,36 @@ function post_type_partners()
 
 
 /*
+*  Register Post Type  Archive
+*/
+add_action('init', 'post_type_archives');
+
+function post_type_archives()
+{
+    $labels = array(
+        'name' => 'Архив',
+        'singular_name' => 'Архив',
+        'all_items' => 'Архив',
+        'menu_name' => 'Архив' // ссылка в меню в админке
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_position' => 5,
+        'has_archive' => true,
+        'query_var' => "archives",
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail'
+        )
+    );
+    register_post_type('archives', $args);
+}
+
+
+
+/*
 *  Register Post Type Settings
 */
 if (function_exists('acf_add_options_page')) {
@@ -438,6 +468,41 @@ function eventItems($term, $page = '')
     endwhile;
 
 }
+/**
+ *  Archive items
+ * @param $term
+ */
+function archiveItems($year = '', $page = '', $count = '')
+{
+
+
+    $arg = [
+        'posts_per_page' => !empty($count) ? $count !== 'all' ? $count : '12' :  12,
+        'post_type' => 'archives',
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'status' => 'publish',
+    ];
+    if ($year != 'all') {
+        $arg['date_query'][] = ['year' => $year];
+    }
+    if (!empty($page)) {
+        $arg['paged'] = $page;
+    } else {
+        $arg['paged'] = '1';
+    }
+
+    ?>
+    <?php
+    $the_query = new WP_Query($arg);
+
+    while ($the_query->have_posts()) :
+        $the_query->the_post();
+        $post_id = $the_query->post->ID;
+        get_template_part('inc/archive-item');
+    endwhile;
+
+}
 
 
 /**
@@ -480,18 +545,58 @@ function be_ajax_events_load()
 add_action('wp_ajax_be_ajax_events_load', 'be_ajax_events_load');
 add_action('wp_ajax_nopriv_be_ajax_events_load', 'be_ajax_events_load');
 
+/**
+ * AJAX Load  Archive
+ */
+
+function be_ajax_archive_load()
+{
+    $count = wp_count_posts('archives');
+    ob_start();
+    archiveItems($_POST['year'], $_POST['page'], $_POST['count']);
+    wp_reset_postdata();
+    $data = ob_get_clean();
+    $response = [
+        'data' => $data,
+        'count' => $count
+    ];
+    wp_send_json_success($response);
+    wp_die();
+}
+
+add_action('wp_ajax_be_ajax_archive_load', 'be_ajax_archive_load');
+add_action('wp_ajax_nopriv_be_ajax_archive_load', 'be_ajax_archive_load');
 
 
 /**
  *  Redirect for Portfolio
  */
 
-if(!empty($_REQUEST['id'])){
+if (!empty($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
     $output = '';
-    if($id == 'omsk-100-luchshih-kompanij'){
+    if ($id == 'omsk-100-luchshih-kompanij') {
         $output = '/nashi-proekti/#omsk-100-luchshih-kompanij';
     }
-    wp_redirect($output , '301');
+    wp_redirect($output, '301');
 }
- 
+
+/*
+ *  Get All post years
+ */
+function get_archives_years_array() {
+    global $wpdb;
+    $result = array();
+    $years = $wpdb->get_results(
+        $wpdb->prepare(
+            "SELECT YEAR(post_date) FROM {$wpdb->posts} WHERE post_status = 'publish'  AND wp_posts.post_type = 'archives' GROUP BY YEAR(post_date) DESC"
+        ),
+        ARRAY_N
+    );
+    if ( is_array( $years ) && count( $years ) > 0 ) {
+        foreach ( $years as $year ) {
+            $result[] = $year[0];
+        }
+    }
+    return $result;
+}

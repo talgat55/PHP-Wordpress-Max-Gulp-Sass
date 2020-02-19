@@ -21,9 +21,9 @@ jQuery(document).ready(function () {
     scrollFirstSlider();
     OpenModal();
     eventCatAjax();
+    archiveActions();
 
-
-    $('.menu-icon-toggle').on('click', function(e) {
+    $('.menu-icon-toggle').on('click', function (e) {
         $('body').toggleClass('open');
 
         e.preventDefault();
@@ -33,8 +33,8 @@ jQuery(document).ready(function () {
     //
     jQuery('.page-news_list-row .post-item').matchHeight();
 
-        //  init   animation blocks library
-        AOS.init();
+    //  init   animation blocks library
+    AOS.init();
     // end redy function
 });
 
@@ -69,6 +69,7 @@ function backToTop() {
     });
 
 }
+
 //----------------------------------
 //  Modal
 //---------------------------------------
@@ -173,7 +174,7 @@ function map() {
             var myMap = new ymaps.Map('map', {
                     center: [54.986568, 73.378812],
                     zoom: 15,
-                    controls: [ ]
+                    controls: []
                 }, {
                     // searchControlProvider: 'yandex#search'
                 }),
@@ -487,7 +488,7 @@ function adversisticsCarousel() {
             slidesToScroll: 4,
             arrows: true,
             dots: false,
-             autoplay: true,
+            autoplay: true,
             responsive: [
                 {
                     breakpoint: 1100,
@@ -618,26 +619,26 @@ function eventCatAjax() {
             page: $page,
             term: $term
         };
-        jQuery(this).attr('data-page' , ++$page );
+        jQuery(this).attr('data-page', ++$page);
 
         jQuery.post(myajax.url, data, function (res) {
             if (res.success) {
                 if (res.data.data != '') {
                     var countItems = jQuery('.page-news_list-row .post-item').length;
-                    if( res.data.count.publish == countItems){
+                    if (res.data.count.publish == countItems) {
                         jQuery('.page-news .load-more').fadeOut();
                     }
-                    if(res.data.data.length > 4){
+                    if (res.data.data.length > 4) {
                         jQuery('.page-news_list-row')
                             .append(res.data.data);
-                    }else{
+                    } else {
 
-                            jQuery('.page-news_list-row').after('<p class="no-items-text">Записей больше нет</p>');
-                            setTimeout(function (){
+                        jQuery('.page-news_list-row').after('<p class="no-items-text">Записей больше нет</p>');
+                        setTimeout(function () {
 
-                                jQuery('.no-items-text').remove();
+                            jQuery('.no-items-text').remove();
 
-                            },2000);
+                        }, 2000);
 
                     }
                 } else {
@@ -651,11 +652,113 @@ function eventCatAjax() {
     });
 }
 
+//----------------------------------
+//    Archive
+//---------------------------------------
+function archiveActions() {
+    "use strict";
+    let body = jQuery('body');
+    body.on('click', '.page-archive_list-years_item_link', function () {
+
+        var activeClass = 'page-archive_list-years_item_link__active';
+        jQuery('.page-archive_list-years_item_link').removeClass(activeClass);
+        jQuery(this).addClass(activeClass);
+
+        var $term = jQuery(this).attr('data-slug');
+
+        if ($term === 'all') {
+            jQuery('.load-more-archive').show();
+            jQuery('.page-archive_sub-title').html(' ').html(jQuery('.page-archive_list-years_item').eq(1).text());
+
+        } else {
+            jQuery('.load-more-archive').hide();
+            jQuery('.page-archive_sub-title').html(' ').html(jQuery(this).text());
+        }
+
+        jQuery('.page-archive_list-items').addClass('loading');
+
+        var data = {
+            action: 'be_ajax_archive_load',
+            year: $term,
+            count: $term === 'all' ? $term : '-1',
+        };
+
+        jQuery.post(myajax.url, data, function (res) {
+            jQuery('.page-archive_list-items').removeClass('loading');
+            if (res.success) {
+                if (res.data.data.length > 4) {
+
+                    jQuery('.page-archive_list-items')
+                        .html(' ')
+                        .append(res.data.data);
+
+                } else {
+
+                    jQuery('.page-archive_list-items').after('<p class="no-items-text">Записей больше нет</p>');
+                    setTimeout(function () {
+
+                        jQuery('.no-items-text').remove();
+
+                    }, 2000);
+
+                }
+            }
+        }).fail(function (xhr, textStatus, e) {
+            console.log(xhr.responseText);
+        });
+        return false;
+    });
+
+    //
+    // Load more
+    //
+    body.on('click', ' .load-more-archive', function () {
+        var $page = jQuery(this).attr('data-page');
+        var data = {
+            action: 'be_ajax_archive_load',
+            page: $page,
+        };
+
+        jQuery(this).attr('data-page', ++$page);
+
+        jQuery.post(myajax.url, data, function (res) {
+            if (res.success) {
+                if (res.data.data != '') {
+                    // var countItems = jQuery('.page-news_list-row .post-item').length;
+                    // if( res.data.count.publish == countItems){
+                    //     jQuery('.page-news .load-more').fadeOut();
+                    // }
+
+                    if (res.data.data.length > 4) {
+                        jQuery('.page-archive_list-items')
+                            .append(res.data.data);
+                    } else {
+
+                        jQuery('.page-archive_list-items').after('<p class="no-items-text">Записей больше нет</p>');
+                        setTimeout(function () {
+
+                            jQuery('.no-items-text').remove();
+
+                        }, 2000);
+
+                    }
+                } else {
+                    console.log(res);
+                }
+            }
+        }).fail(function (xhr, textStatus, e) {
+            console.log(xhr.responseText);
+        });
+        return false;
+    });
+}
+
+
 document.addEventListener('wpcf7mailsent', function (event) {
     if (event.detail.contactFormId == "51") {
         successModal();
     }
-     if (event.detail.contactFormId == "168") {
+    if (event.detail.contactFormId == "168") {
         successModal();
     }
 }, false);
