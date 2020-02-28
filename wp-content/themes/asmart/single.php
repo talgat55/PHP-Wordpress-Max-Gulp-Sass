@@ -44,8 +44,7 @@ $photo = get_field('foto_dlya_skachivaniya', get_the_ID());
                         <h1 class="page-title-main">
                             <?php echo get_the_title(get_the_ID()); ?>
                         </h1>
-                        <div class="single-page-news_content_text">
-                            <?php echo get_the_content(get_the_ID()); ?>
+                        <div class="single-page-news_content_text"> 
 
                             <?php the_content(); ?>
                         </div>
